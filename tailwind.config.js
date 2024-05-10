@@ -1,8 +1,10 @@
 /** @type {import('tailwindcss').Config} */
+
 export default {
   content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
   theme: {
     extend: {
+      colors: { primary: '#ffb400' },
       keyframes: {
         'loading-page': {
           from: { top: 0, height: '100vh' },
