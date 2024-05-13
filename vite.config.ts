@@ -7,7 +7,7 @@ import tailwindcss from 'tailwindcss'
 // https://vitejs.dev/config/
 export default defineConfig({
   resolve: {
-    alias: [],
+    alias: [{ find: '@components', replacement: '/src/components' }],
   },
   css: {
     postcss: {
