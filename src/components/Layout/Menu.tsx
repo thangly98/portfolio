@@ -38,7 +38,7 @@ function Menu() {
           <div
             className={classNames(
               'flex items-center justify-center',
-              'w-12 h-12 rounded-[50%] bg-[#2b2a2a] text-white text-xl cursor-pointer',
+              'w-12 h-12 rounded-[50%] bg-[#2b2a2a] text-xl text-white cursor-pointer',
               'relative overflow-hidden group',
               'duration-300',
               'hover:bg-primary hover:overflow-visible',

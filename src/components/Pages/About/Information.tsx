@@ -60,7 +60,7 @@ function PersonalInfos({ data }: Readonly<{ data: IResumeType }>) {
         <div
           className={classNames(
             'grid grid-cols-2 gap-8',
-            ' text-[.9375rem] font-semibold [&_li_span]:font-normal',
+            'text-[.9375rem] font-semibold [&_li_span]:font-normal',
             'max-sm:[&_li_span]:block max-sm:[&_li_span]:mb-1 max-sm:text-sm'
           )}>
           <ul className={classNames('[&_li]:mb-5')}>
