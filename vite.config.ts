@@ -14,5 +14,5 @@ export default defineConfig({
       plugins: [tailwindcss()],
     },
   },
-  plugins: [react(), tsconfigPaths(), svgr({ svgrOptions: { svgProps: { fill: 'currentColor', width: '1em' } } })],
+  plugins: [react(), tsconfigPaths(), svgr({ svgrOptions: { svgProps: { width: '1em' } } })],
 })

@@ -1,35 +1,51 @@
 import classNames from '@functions/classNames'
 
-import BillListIcon from '@assets/icons/bill-list-filled.svg?react'
-import UserGroupIcon from '@assets/icons/user-group-filled.svg?react'
-import CodeIcon from '@assets/icons/code-outline.svg?react'
 import CloseIcon from '@assets/icons/close-outline.svg?react'
+import CodeIcon from '@assets/icons/code-outline.svg?react'
+import DocumentIcon from '@assets/icons/document-text-outline.svg?react'
+import OutsideIcon from '@assets/icons/outside-outline.svg?react'
+import UserGroupIcon from '@assets/icons/user-group-outline.svg?react'
+import UserIcon from '@assets/icons/user-outline.svg?react'
+import UserRoleIcon from '@assets/icons/user-role-outline.svg?react'
 
 import type { IProject } from '@pages/Portfolio'
 
-function ProjectViewer({ data, onClose }: Readonly<{ data?: IProject; onClose: () => void }>) {
+function ProjectViewer({ open, data, onClose }: Readonly<{ open?: boolean; data?: IProject; onClose: () => void }>) {
   return (
     <div
       className={classNames(
-        data ? 'opacity-100 visible scale-100' : 'opacity-0 invisible scale-150',
-        'fixed top-0 left-0 z-50 w-full min-h-full p-5 ',
-        'flex items-center justify-center',
+        open ? 'opacity-100 visible' : 'opacity-0 invisible',
+        'fixed top-0 left-0 z-50 w-full h-screen md:p-5',
+        'flex items-center justify-center max-md:flex-col',
         'bg-[rgba(0,0,0,0.6)]',
         'transition-all duration-300'
       )}>
-      <CloseIcon className={classNames('absolute top-3 right-3 text-4xl cursor-pointer')} onClick={onClose} />
+      <div
+        className={classNames(
+          'md:absolute top-0 right-0 text-4xl text-[#ababab]',
+          'w-full flex justify-end px-6 py-3 md:p-5',
+          'max-md:border-b border-[#333] max-md:bg-[var(--border-color)]'
+        )}>
+        <CloseIcon className={classNames('cursor-pointer')} onClick={onClose} />
+      </div>
 
       {data && (
         <div
           className={classNames(
-            'w-full max-w-[660px] max-h-[calc(100vh-150px)] px-6 py-8 overflow-auto scrollbar-custom',
-            'bg-[var(--border-color)] rounded-xl'
+            open ? 'scale-100' : 'scale-110',
+            'transition-all duration-300',
+            'w-full max-w-3xl h-screen md:max-h-[calc(100vh-150px)] max-md:flex-auto px-6 py-8 overflow-auto scrollbar-custom',
+            'bg-[var(--border-color)] md:rounded-xl'
           )}>
           <h3 className={classNames('text-4xl text-primary font-bold uppercase text-center')}>{data.name}</h3>
-          <ul className={classNames('my-3', 'text-sm font-medium', '[&_li_svg]:inline-block [&_li_svg]:mr-2 [&_li_span]:font-normal [&>li]:mb-2')}>
+          <ul
+            className={classNames(
+              'my-3 text-sm',
+              '[&_li_svg]:inline-block [&_li_svg]:mr-2 [&_li_svg]:text-primary [&_li_span]:font-normal [&_li_span]:text-[#ababab] [&>li]:mb-2'
+            )}>
             <li>
               <span>
-                <BillListIcon />
+                <DocumentIcon />
                 Description :&nbsp;
               </span>
               {data.introduction}
@@ -43,14 +59,14 @@ function ProjectViewer({ data, onClose }: Readonly<{ data?: IProject; onClose: (
             </li>
             <li>
               <span>
-                <UserGroupIcon />
+                <UserIcon />
                 Position :&nbsp;
               </span>
               {data.position}
             </li>
             <li>
               <span>
-                <UserGroupIcon />
+                <UserRoleIcon />
                 Role and Responsibilities :&nbsp;
               </span>
               <div
@@ -67,15 +83,15 @@ function ProjectViewer({ data, onClose }: Readonly<{ data?: IProject; onClose: (
             </li>
             <li>
               <span>
-                <UserGroupIcon />
+                <OutsideIcon />
                 Preview :&nbsp;
               </span>
-              <a className={classNames('text-primary font-semibold')} href={data.link} target='_blank'>
+              <a className={classNames('font-semibold italic underline')} href={data.link} target='_blank'>
                 {data.link}
               </a>
             </li>
           </ul>
-          <img src={data.thumbnail} alt='' className={classNames('w-full h-auto rounded-md')} />
+          <img key={data.thumbnail} src={data.thumbnail} alt='' className={classNames('w-full h-auto rounded-md')} />
         </div>
       )}
     </div>
