@@ -6,6 +6,7 @@ import Layout from '@components/Layout'
 import About from '@pages/About'
 import Home from '@pages/Home'
 import Portfolio from '@pages/Portfolio'
+import NotFoundPage from '@components/Pages/404'
 
 import './index.css'
 
@@ -19,6 +20,7 @@ const router = createBrowserRouter([
       { path: '/portfolio', element: <Portfolio /> },
     ],
   },
+  { path: '*', element: <NotFoundPage /> },
 ])
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
