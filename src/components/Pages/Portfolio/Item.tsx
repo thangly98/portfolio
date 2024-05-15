@@ -12,7 +12,11 @@ function ProjectItem({ data, onClick }: Readonly<{ data: IProject; onClick?: (da
         'hover:after:translate-y-0 hover:after:opacity-70'
       )}
       onClick={() => onClick?.(data)}>
-      <img src={data.thumbnail} alt='' className={classNames('aspect-[34/21]', 'group-hover:scale-110', 'transition-all duration-300')} />
+      <img
+        className={classNames('aspect-[34/21] object-cover', 'group-hover:scale-110', 'transition-all duration-300')}
+        src={data.thumbnail}
+        alt=''
+      />
       <div
         className={classNames(
           'p-7',
