@@ -10,6 +10,7 @@ type IProject = {
   members: number
   technology: string[]
   description?: string
+  achievement?: string
   link?: string
 }
 
