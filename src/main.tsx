@@ -3,10 +3,11 @@ import ReactDOM from 'react-dom/client'
 import { RouterProvider, createBrowserRouter } from 'react-router-dom'
 
 import Layout from '@components/Layout'
+import NotFoundPage from '@components/Pages/404'
 import About from '@pages/About'
 import Home from '@pages/Home'
 import Portfolio from '@pages/Portfolio'
-import NotFoundPage from '@components/Pages/404'
+import Contact from '@pages/Contact'
 
 import './index.css'
 
@@ -18,6 +19,7 @@ const router = createBrowserRouter([
       { index: true, element: <Home /> },
       { path: '/about', element: <About /> },
       { path: '/portfolio', element: <Portfolio /> },
+      { path: '/contact', element: <Contact /> },
     ],
   },
   { path: '*', element: <NotFoundPage /> },

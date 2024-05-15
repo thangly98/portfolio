@@ -1,16 +1,13 @@
 import { Link } from 'react-router-dom'
+
 import classNames from '@functions/classNames'
+
 import ArrowRightIcon from '@assets/icons/map-arrow-right-filled.svg?react'
 import ButtonPrimary from '@components/Fragments/ButtonPrimary'
 
-type Data = {
-  avatar: string
-  first_name: string
-  last_name: string
-  introduction: string
-}
+import { IDataHomePage } from '@pages/Home'
 
-function HomePage({ data }: Readonly<{ data: Data }>) {
+function HomePage({ data }: Readonly<{ data: IDataHomePage }>) {
   return (
     <div className='container px-4 mx-auto'>
       <div className={classNames('bg-primary', 'fixed -top-1/2 -left-[83%] w-full h-[200%] -rotate-[15deg] -z-10', 'max-lg:hidden')} />
