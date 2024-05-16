@@ -1,4 +1,3 @@
-import { CSSProperties } from 'react'
 import classNames from '@functions/classNames'
 import BackpackIcon from '@assets/icons/backpack-filled.svg?react'
 import SquareAcademicIcon from '@assets/icons/squarea-cademic-filled.svg?react'
@@ -28,12 +27,12 @@ function Item({ data, type }: Readonly<{ data: IEducationType | IExperienceType;
   return (
     <li
       className={classNames(
+        '[--timeline-icon-w:40px]',
         'grid grid-cols-[var(--timeline-icon-w)_1fr] gap-5',
-        'relative mb-12',
+        'relative mb-12 leading-none',
         'after:absolute after:top-0 after:bottom-0 after:left-[calc(var(--timeline-icon-w)/2)] after:-translate-x-1/2',
         'after:w-[1px] after:bg-[#333] after:-z-10'
-      )}
-      style={{ '--timeline-icon-w': '40px' } as CSSProperties}>
+      )}>
       <div className={classNames('flex items-center justify-center', 'w-[--timeline-icon-w] h-[--timeline-icon-w] rounded-[50%]', 'bg-primary')}>
         {type === 'education' ? <SquareAcademicIcon /> : <BackpackIcon />}
       </div>
