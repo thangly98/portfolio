@@ -4,27 +4,27 @@ import BackpackIcon from '@assets/icons/backpack-filled.svg?react'
 import SquareAcademicIcon from '@assets/icons/squarea-cademic-filled.svg?react'
 import { IEducationType, IExperienceType } from '.'
 
-function MyExperiences({ data }: { data: { educations: IEducationType[]; experiences: IExperienceType[] } }) {
+function MyExperiences({ data }: Readonly<{ data: { educations: IEducationType[]; experiences: IExperienceType[] } }>) {
   return (
     <section>
-      <hr className={classNames('max-w-[40%] mx-auto mt-16 mb-12 border-[var(--border-color)]')} />
+      <hr className={classNames('max-w-[40%] mx-auto mt-16 mb-12 border-[--border-color]')} />
       <h3 className={classNames('mb-5 pb-12', 'text-2xl font-bold uppercase text-center')}>Experience & Education</h3>
 
       <ul>
-        {data.experiences.map((experience, index) => (
-          <Item key={index} data={experience} type='experience' />
+        {data.experiences.map((experience) => (
+          <Item key={experience.name} data={experience} type='experience' />
         ))}
       </ul>
       <ul>
-        {data.educations.map((education, index) => (
-          <Item key={index} data={education} type='education' />
+        {data.educations.map((education) => (
+          <Item key={education.name} data={education} type='education' />
         ))}
       </ul>
     </section>
   )
 }
 
-function Item({ data, type }: { data: IEducationType | IExperienceType; type: 'education' | 'experience' }) {
+function Item({ data, type }: Readonly<{ data: IEducationType | IExperienceType; type: 'education' | 'experience' }>) {
   return (
     <li
       className={classNames(
@@ -34,20 +34,11 @@ function Item({ data, type }: { data: IEducationType | IExperienceType; type: 'e
         'after:w-[1px] after:bg-[#333] after:-z-10'
       )}
       style={{ '--timeline-icon-w': '40px' } as CSSProperties}>
-      <div
-        className={classNames(
-          'flex items-center justify-center',
-          'w-[var(--timeline-icon-w)] h-[var(--timeline-icon-w)] rounded-[50%]',
-          'bg-primary'
-        )}>
+      <div className={classNames('flex items-center justify-center', 'w-[--timeline-icon-w] h-[--timeline-icon-w] rounded-[50%]', 'bg-primary')}>
         {type === 'education' ? <SquareAcademicIcon /> : <BackpackIcon />}
       </div>
       <div>
-        <span
-          className={classNames(
-            'inline-block px-2 py-[1px] mb-3',
-            'text-xs font-semibold uppercase bg-[var(--border-color)] rounded-3xl opacity-80'
-          )}>
+        <span className={classNames('inline-block px-2 py-[1px] mb-3', 'text-xs font-semibold uppercase bg-[--border-color] rounded-3xl opacity-80')}>
           {new Date(data.start_date).getFullYear()} - {data.end_date ? new Date(data.end_date).getFullYear() : 'Present'}
         </span>
         <h5 className={classNames('mt-2 mb-3', 'text-lg font-medium leading-6')}>

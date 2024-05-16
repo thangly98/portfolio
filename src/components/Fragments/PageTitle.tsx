@@ -6,7 +6,7 @@ function PageTitle({ title, titleBg }: Readonly<{ title: string; titleBg?: strin
       className={classNames(
         'relative py-20',
         'md:text-center font-extrabold uppercase',
-        'max-md:fixed max-md:top-0 max-md:left-0 max-md:z-10 max-md:w-full max-md:px-6 max-md:py-4 max-md:bg-[var(--border-color)]'
+        'max-md:fixed max-md:top-0 max-md:left-0 max-md:z-10 max-md:w-full max-md:px-6 max-md:py-4 max-md:bg-[--border-color]'
       )}>
       <h1 className={classNames('text-6xl', 'max-md:text-3xl')}>
         {title.split(' ').slice(0, -1).join(' ')}

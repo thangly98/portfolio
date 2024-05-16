@@ -27,7 +27,7 @@ function NotFoundPage() {
               'grid grid-cols-8',
               '[&_li]:flex [&_li]:items-center [&_li]:justify-center [&_li]:aspect-square',
               '[&_li]:uppercase [&_li]:text-xl [&_li]:text-slate-300',
-              '[&_li]:border-2 [&_li]:border-[#111] [&_li]:bg-[var(--border-color)]',
+              '[&_li]:border-2 [&_li]:border-[#111] [&_li]:bg-[--border-color]',
               '[&_li]:transition-all [&_li]:duration-300'
             )}>
             <li>k</li>
@@ -97,11 +97,9 @@ function NotFoundPage() {
           </ul>
         </div>
         <div className={classNames('content-center')}>
-          <h1 className={classNames('text-3xl')} style={{ textShadow: 'var(--text-shadow-404)' }}>
-            Oops! Something is wrong.
-          </h1>
+          <h1 className={classNames('text-3xl')}>Oops! Something is wrong.</h1>
           <Link to={'/'}>
-            <button className={classNames('mt-10 px-6 py-4', 'font-semibold bg-[var(--border-color)] rounded-md')}>Go to Homepage</button>
+            <button className={classNames('mt-10 px-6 py-4', 'font-semibold bg-[--border-color] rounded-md')}>Go to Homepage</button>
           </Link>
         </div>
       </div>

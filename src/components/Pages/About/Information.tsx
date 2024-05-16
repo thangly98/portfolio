@@ -54,7 +54,7 @@ function PersonalInfos({ data }: Readonly<{ data: IResumeType }>) {
           src={information.avatar}
           alt=''
           className={classNames(
-            'sm:hidden w-48 aspect-square mx-auto mb-8 object-cover rounded-[50%] object-bottom border-4 border-[var(--border-color)]'
+            'sm:hidden w-48 aspect-square mx-auto mb-8 object-cover rounded-[50%] object-bottom border-4 border-[--border-color]'
           )}
         />
         <div
@@ -103,7 +103,7 @@ function PersonalInfos({ data }: Readonly<{ data: IResumeType }>) {
       <div className={classNames('basis-1/2 px-4', 'max-md:basis-full')}>
         <div className={classNames('grid grid-cols-2 gap-8')}>
           {counterInfos.map(({ title, count }) => (
-            <div className={classNames('p-6', 'border border-[var(--border-color)] rounded')}>
+            <div className={classNames('p-6', 'border border-[--border-color] rounded')}>
               <h4 className={classNames('text-5xl text-primary font-bold')}>
                 {count}
                 {count > 0 && <sup className='font-normal'>+</sup>}

@@ -34,7 +34,7 @@ function ProjectViewer({ open, data, onClose }: Readonly<{ open?: boolean; data?
         className={classNames(
           'md:absolute top-0 right-0 text-4xl text-[#ababab]',
           'w-full flex justify-end px-6 py-3 md:p-5',
-          'max-md:border-b border-[#333] max-md:bg-[var(--border-color)]'
+          'max-md:border-b border-[#333] max-md:bg-[--border-color]'
         )}>
         <CloseIcon className={classNames('cursor-pointer')} onClick={onClose} />
       </div>
@@ -45,7 +45,7 @@ function ProjectViewer({ open, data, onClose }: Readonly<{ open?: boolean; data?
             open ? 'scale-100' : 'scale-110',
             'transition-all duration-300',
             'w-full max-w-3xl md:max-h-[calc(100vh-150px)] max-md:flex-auto px-6 py-8 overflow-auto scrollbar-custom',
-            'bg-[var(--border-color)] md:rounded-xl'
+            'bg-[--border-color] md:rounded-xl'
           )}>
           <h3 className={classNames('text-4xl text-primary font-bold uppercase text-center')}>{data.name}</h3>
           <ul

@@ -4,7 +4,7 @@ import { ISkillType } from '.'
 function MySkills({ data }: { data: ISkillType[] }) {
   return (
     <section>
-      <hr className={classNames('max-w-[40%] mx-auto mt-16 mb-12 border-[var(--border-color)]')} />
+      <hr className={classNames('max-w-[40%] mx-auto mt-16 mb-12 border-[--border-color]')} />
       <h3 className={classNames('mb-5 pb-12', 'text-2xl font-bold uppercase text-center')}>My Skills</h3>
       <div className={classNames('grid grid-cols-2 lg:grid-cols-4 gap-y-14')}>
         {data.map(({ name, point }) => (
@@ -12,7 +12,7 @@ function MySkills({ data }: { data: ISkillType[] }) {
             <div
               className={classNames(
                 'relative text-9xl text-[120px] w-[1em] h-[1em] font-semibold',
-                'bg-[var(--border-color)] rounded-[50%]',
+                'bg-[--border-color] rounded-[50%]',
                 'after:absolute after:block after:top-[.08em] after:left-[.08em] after:w-[.84em] after:h-[.84em] after:rounded-[50%] after:bg-[#111]',
                 'max-sm:text-[96px]'
               )}>

@@ -62,7 +62,7 @@ function ContactPage({ data }: Readonly<{ data: IDataContactPage }>) {
             onSubmit={handleSubmit}>
             <div className={classNames('lg:!basis-1/2')}>
               <input
-                className={classNames('w-full py-3 px-7 rounded-full bg-[var(--border-color)]')}
+                className={classNames('w-full py-3 px-7 rounded-full bg-[--border-color]')}
                 type='text'
                 placeholder='Your name'
                 name='name'
@@ -72,7 +72,7 @@ function ContactPage({ data }: Readonly<{ data: IDataContactPage }>) {
             </div>
             <div className={classNames('lg:!basis-1/2')}>
               <input
-                className={classNames('w-full py-3 px-7 rounded-full bg-[var(--border-color)]')}
+                className={classNames('w-full py-3 px-7 rounded-full bg-[--border-color]')}
                 type='email'
                 placeholder='Your email'
                 name='email'
@@ -82,7 +82,7 @@ function ContactPage({ data }: Readonly<{ data: IDataContactPage }>) {
             </div>
             <div>
               <input
-                className={classNames('w-full py-3 px-7 rounded-full bg-[var(--border-color)]')}
+                className={classNames('w-full py-3 px-7 rounded-full bg-[--border-color]')}
                 type='text'
                 placeholder='Your subject'
                 name='subject'
@@ -92,7 +92,7 @@ function ContactPage({ data }: Readonly<{ data: IDataContactPage }>) {
             </div>
             <div>
               <textarea
-                className={classNames('w-full min-h-32 py-3 px-7 rounded-3xl bg-[var(--border-color)]')}
+                className={classNames('w-full min-h-32 py-3 px-7 rounded-3xl bg-[--border-color]')}
                 placeholder='Your message'
                 name='message'
                 required

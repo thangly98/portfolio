@@ -24,7 +24,7 @@ function HomePage({ data }: Readonly<{ data: IDataHomePage }>) {
             alt=''
             className={classNames(
               'w-full h-auto rounded-3xl lg:shadow-[0_0_7px_rgba(0,0,0,.9)]',
-              'max-lg:w-60 max-lg:aspect-square max-lg:rounded-[50%] max-lg:object-cover max-lg:object-bottom max-lg:mx-auto max-lg:border-4 border-[var(--border-color)]'
+              'max-lg:w-60 max-lg:aspect-square max-lg:rounded-[50%] max-lg:object-cover max-lg:object-bottom max-lg:mx-auto max-lg:border-4 border-[--border-color]'
             )}
           />
         </div>
