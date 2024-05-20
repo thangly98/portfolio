@@ -57,45 +57,28 @@ function PersonalInfos({ data }: Readonly<{ data: IResumeType }>) {
             'sm:hidden w-48 aspect-square mx-auto mb-8 object-cover rounded-[50%] object-bottom border-4 border-[--border-color]'
           )}
         />
-        <div
-          className={classNames(
-            'grid grid-cols-2 gap-8',
-            'text-[.9375rem] font-semibold [&_li_span]:font-normal',
-            'max-sm:[&_li_span]:block max-sm:[&_li_span]:mb-1 max-sm:text-sm'
-          )}>
-          <ul className={classNames('[&_li]:mb-5')}>
-            <li>
-              <span className={classNames('opacity-80')}>Full Name : </span>
-              {information.last_name + ' ' + information.first_name}
-            </li>
-            <li>
-              <span className={classNames('opacity-80')}>Date of birth : </span>
-              {information.birthday}
-            </li>
-            <li>
-              <span className={classNames('opacity-80')}>Address : </span>
-              {information.address}
-            </li>
-            <li>
-              <span className={classNames('opacity-80')}>Phone : </span>
-              <a href={'tel:' + information.phone}>{information.phone}</a>
-            </li>
-            <li>
-              <span className={classNames('opacity-80')}>Email : </span>
-              <a href={'mailto:' + information.email}>{information.email}</a>
-            </li>
-          </ul>
-          <ul className={classNames('[&_li]:mb-5')}>
-            {data.links.map(({ name, url }) => (
-              <li key={url}>
-                <a className={classNames('underline')} href={url} target='_blank'>
-                  {name}
-                </a>
-                <span>&nbsp;</span>
-              </li>
-            ))}
-          </ul>
-        </div>
+        <ul className={classNames('[&_li]:mb-5', 'text-[.9375rem] font-semibold [&_li_span]:font-normal', 'max-sm:text-sm')}>
+          <li>
+            <span className={classNames('opacity-80')}>Full Name : </span>
+            {information.last_name + ' ' + information.first_name}
+          </li>
+          <li>
+            <span className={classNames('opacity-80')}>Date of birth : </span>
+            {information.birthday}
+          </li>
+          <li>
+            <span className={classNames('opacity-80')}>Address : </span>
+            {information.address}
+          </li>
+          <li>
+            <span className={classNames('opacity-80')}>Phone : </span>
+            <a href={'tel:' + information.phone}>{information.phone}</a>
+          </li>
+          <li>
+            <span className={classNames('opacity-80')}>Email : </span>
+            <a href={'mailto:' + information.email}>{information.email}</a>
+          </li>
+        </ul>
         <a className='inline-flex' href='/static/QuocThangLy_FrontendDeveloper.pdf' target='_blank'>
           <ButtonPrimary icon={<DownloadIcon />}>Download CV</ButtonPrimary>
         </a>

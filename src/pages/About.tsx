@@ -10,10 +10,9 @@ function About() {
   useEffect(() => {
     const fetchData = async () => {
       await GET('https://thangly.hasura.app/api/rest/about-page').then((data) => {
-        const { information, links, education, experience, projects_aggregate, skills } = data
+        const { information, education, experience, projects_aggregate, skills } = data
         setData({
           information: information[0],
-          links,
           educations: education,
           experiences: experience,
           experience_start_date: experience.at(-1)?.start_date,

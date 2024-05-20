@@ -1,4 +1,5 @@
 import classNames from '@functions/classNames'
+
 import Container from '@components/Fragments/Container'
 import PageTitle from '@components/Fragments/PageTitle'
 import PersonalInfos from './Information'
@@ -7,7 +8,6 @@ import MyExperiences from './Experience'
 
 type IResumeType = {
   information: { avatar: string; first_name: string; last_name: string; birthday: string; address: string; phone: string; email: string }
-  links: { name: string; url: string }[]
   educations: IEducationType[]
   experiences: IExperienceType[]
   experience_start_date?: string

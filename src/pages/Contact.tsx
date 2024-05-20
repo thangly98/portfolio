@@ -1,9 +1,10 @@
 import useFetchApi from '@hooks/useFetchApi'
+import { ILink } from '@interfaces/data'
 import LoadingPage from '@components/Fragments/LoadingPage'
 import ContactPage from '@components/Pages/Contact'
 
 type IInformation = { email: string; phone: string }
-type IDataContactPage = { information: IInformation; links: { name: string; url: string }[] }
+type IDataContactPage = { information: IInformation; links: ILink[] }
 
 function Contact() {
   const { loading, data } = useFetchApi<Pick<IDataContactPage, 'links'> & { information: [IInformation] }>(

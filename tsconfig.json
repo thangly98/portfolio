@@ -26,6 +26,7 @@
       "@functions/*": ["src/functions/*"],
       "@hooks/*": ["src/hooks/*"],
       "@assets/*": ["src/assets/*"],
+      "@interfaces/*": ["src/interfaces/*"],
       "@pages/*": ["src/pages/*"],
       "@components/*": ["src/components/*"]
     }
