@@ -1,3 +1,4 @@
+/// <reference types="vitest" />
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react-swc'
 import tsconfigPaths from 'vite-tsconfig-paths'
@@ -14,5 +15,17 @@ export default defineConfig({
       plugins: [tailwindcss()],
     },
   },
-  plugins: [react(), tsconfigPaths(), svgr({ svgrOptions: { svgProps: { width: '1em' } } })],
+  plugins: [
+    react(),
+    tsconfigPaths(),
+    svgr({
+      svgrOptions: {
+        svgProps: { width: '1em' },
+      },
+    }),
+  ],
+  test: {
+    globals: true,
+    environment: 'jsdom',
+  },
 })
