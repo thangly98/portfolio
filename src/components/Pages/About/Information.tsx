@@ -1,7 +1,7 @@
 import { ReactNode } from 'react'
 import classNames from '@functions/classNames'
 import DownloadIcon from '@assets/icons/download-filled.svg?react'
-import PrimaryButton from '@components/Fragments/ButtonPrimary'
+import PrimaryButton from '@components/Fragments/PrimaryButton'
 import Animate from '@components/Fragments/Animate'
 import { IResumeType } from '.'
 

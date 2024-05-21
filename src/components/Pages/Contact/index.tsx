@@ -6,7 +6,7 @@ import classNames from '@functions/classNames'
 
 import Container from '@components/Fragments/Container'
 import PageTitle from '@components/Fragments/PageTitle'
-import PrimaryButton from '@components/Fragments/ButtonPrimary'
+import PrimaryButton from '@components/Fragments/PrimaryButton'
 import MailIcon from '@assets/icons/envelope-open-filled.svg?react'
 import PhoneIcon from '@assets/icons/phone-square-filled.svg?react'
 import PlaneIcon from '@assets/icons/plane-filled.svg?react'

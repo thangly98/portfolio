@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import classNames from '@functions/classNames'
 
 import ArrowRightIcon from '@assets/icons/map-arrow-right-filled.svg?react'
-import PrimaryButton from '@components/Fragments/ButtonPrimary'
+import PrimaryButton from '@components/Fragments/PrimaryButton'
 import Animate from '@components/Fragments/Animate'
 
 import { IDataHomePage } from '@pages/Home'
