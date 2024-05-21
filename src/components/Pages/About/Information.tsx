@@ -1,7 +1,8 @@
 import { ReactNode } from 'react'
 import classNames from '@functions/classNames'
-import ButtonPrimary from '@components/Fragments/ButtonPrimary'
 import DownloadIcon from '@assets/icons/download-filled.svg?react'
+import PrimaryButton from '@components/Fragments/ButtonPrimary'
+import Animate from '@components/Fragments/Animate'
 import { IResumeType } from '.'
 
 function PersonalInfos({ data }: Readonly<{ data: IResumeType }>) {
@@ -58,47 +59,61 @@ function PersonalInfos({ data }: Readonly<{ data: IResumeType }>) {
           )}
         />
         <ul className={classNames('[&_li]:mb-5', 'text-[.9375rem] font-semibold [&_li_span]:font-normal', 'max-sm:text-sm')}>
-          <li>
-            <span className={classNames('opacity-80')}>Full Name : </span>
-            {information.last_name + ' ' + information.first_name}
-          </li>
-          <li>
-            <span className={classNames('opacity-80')}>Date of birth : </span>
-            {information.birthday}
-          </li>
-          <li>
-            <span className={classNames('opacity-80')}>Address : </span>
-            {information.address}
-          </li>
-          <li>
-            <span className={classNames('opacity-80')}>Phone : </span>
-            <a href={'tel:' + information.phone}>{information.phone}</a>
-          </li>
-          <li>
-            <span className={classNames('opacity-80')}>Email : </span>
-            <a href={'mailto:' + information.email}>{information.email}</a>
-          </li>
+          <Animate animation='fade-right' animationDelay={500}>
+            <li>
+              <span className={classNames('opacity-80')}>Full Name : </span>
+              {information.last_name + ' ' + information.first_name}
+            </li>
+          </Animate>
+          <Animate animation='fade-right' animationDelay={600}>
+            <li>
+              <span className={classNames('opacity-80')}>Date of birth : </span>
+              {information.birthday}
+            </li>
+          </Animate>
+          <Animate animation='fade-right' animationDelay={700}>
+            <li>
+              <span className={classNames('opacity-80')}>Address : </span>
+              {information.address}
+            </li>
+          </Animate>
+          <Animate animation='fade-right' animationDelay={800}>
+            <li>
+              <span className={classNames('opacity-80')}>Phone : </span>
+              <a href={'tel:' + information.phone}>{information.phone}</a>
+            </li>
+          </Animate>
+          <Animate animation='fade-right' animationDelay={900}>
+            <li>
+              <span className={classNames('opacity-80')}>Email : </span>
+              <a href={'mailto:' + information.email}>{information.email}</a>
+            </li>
+          </Animate>
         </ul>
-        <a className='inline-flex' href='/static/QuocThangLy_FrontendDeveloper.pdf' target='_blank'>
-          <ButtonPrimary icon={<DownloadIcon />}>Download CV</ButtonPrimary>
-        </a>
+        <Animate animation='fade' animationDelay={1200}>
+          <a className='inline-flex' href='/static/QuocThangLy_FrontendDeveloper.pdf' target='_blank'>
+            <PrimaryButton icon={<DownloadIcon />}>Download CV</PrimaryButton>
+          </a>
+        </Animate>
       </div>
       <div className={classNames('basis-1/2 px-4', 'max-md:basis-full')}>
         <div className={classNames('grid grid-cols-2 gap-8')}>
-          {counterInfos.map(({ title, count }) => (
-            <div className={classNames('p-6', 'border border-[--border-color] rounded')}>
-              <h4 className={classNames('text-5xl text-primary font-bold')}>
-                {count}
-                {count > 0 && <sup className='font-normal'>+</sup>}
-              </h4>
-              <p
-                className={classNames(
-                  'relative sm:pl-11 font-medium',
-                  'sm:before:absolute before:left-0 before:top-3 before:w-7 before:h-[1px] before:bg-[#777]'
-                )}>
-                {title}
-              </p>
-            </div>
+          {counterInfos.map(({ title, count }, index) => (
+            <Animate key={new Date().getTime() + index} animation='zoom-in' animationDelay={500 + index * 100}>
+              <div className={classNames('p-6', 'border border-[--border-color] rounded')}>
+                <h4 className={classNames('text-5xl text-primary font-bold')}>
+                  {count}
+                  {count > 0 && <sup className='font-normal'>+</sup>}
+                </h4>
+                <p
+                  className={classNames(
+                    'relative sm:pl-11 font-medium',
+                    'sm:before:absolute before:left-0 before:top-3 before:w-7 before:h-[1px] before:bg-[#777]'
+                  )}>
+                  {title}
+                </p>
+              </div>
+            </Animate>
           ))}
         </div>
       </div>

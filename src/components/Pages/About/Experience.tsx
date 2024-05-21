@@ -1,31 +1,46 @@
+import { forwardRef } from 'react'
 import classNames from '@functions/classNames'
 import BackpackIcon from '@assets/icons/backpack-filled.svg?react'
 import SquareAcademicIcon from '@assets/icons/squarea-cademic-filled.svg?react'
+import Animate from '@components/Fragments/Animate'
 import { IEducationType, IExperienceType } from '.'
 
 function MyExperiences({ data }: Readonly<{ data: { educations: IEducationType[]; experiences: IExperienceType[] } }>) {
   return (
     <section>
-      <hr className={classNames('max-w-[40%] mx-auto mt-16 mb-12 border-[--border-color]')} />
-      <h3 className={classNames('mb-5 pb-12', 'text-2xl font-bold uppercase text-center')}>Experience & Education</h3>
+      <Animate animation='fade'>
+        <div>
+          <hr className={classNames('max-w-[40%] mx-auto mt-16 mb-12 border-[--border-color]')} />
+          <h3 className={classNames('mb-5 pb-12', 'text-2xl font-bold uppercase text-center')}>Experience & Education</h3>
+        </div>
+      </Animate>
 
       <ul>
         {data.experiences.map((experience) => (
-          <Item key={experience.name} data={experience} type='experience' />
+          <Animate key={experience.name} animation='fade-right'>
+            <Item data={experience} type='experience' />
+          </Animate>
         ))}
       </ul>
       <ul>
         {data.educations.map((education) => (
-          <Item key={education.name} data={education} type='education' />
+          <Animate key={education.name} animation='fade-right'>
+            <Item data={education} type='education' />
+          </Animate>
         ))}
       </ul>
     </section>
   )
 }
 
-function Item({ data, type }: Readonly<{ data: IEducationType | IExperienceType; type: 'education' | 'experience' }>) {
+const Item = forwardRef(function (
+  { data, type, ...props }: Readonly<{ data: IEducationType | IExperienceType; type: 'education' | 'experience' }>,
+  ref: React.Ref<HTMLLIElement>
+) {
   return (
     <li
+      {...props}
+      ref={ref}
       className={classNames(
         '[--timeline-icon-w:40px]',
         'grid grid-cols-[var(--timeline-icon-w)_1fr] gap-5',
@@ -52,6 +67,6 @@ function Item({ data, type }: Readonly<{ data: IEducationType | IExperienceType;
       </div>
     </li>
   )
-}
+})
 
 export default MyExperiences

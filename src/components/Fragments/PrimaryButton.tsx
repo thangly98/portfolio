@@ -1,7 +1,7 @@
 import { PropsWithChildren, ReactNode } from 'react'
 import classNames from '@functions/classNames'
 
-function ButtonPrimary({ children, icon, disabled }: Readonly<PropsWithChildren & { icon?: ReactNode; disabled?: boolean }>) {
+function PrimaryButton({ children, icon, disabled }: Readonly<PropsWithChildren & { icon?: ReactNode; disabled?: boolean }>) {
   return (
     <button
       className={classNames(
@@ -28,4 +28,4 @@ function ButtonPrimary({ children, icon, disabled }: Readonly<PropsWithChildren 
   )
 }
 
-export default ButtonPrimary
+export default PrimaryButton

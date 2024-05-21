@@ -6,7 +6,7 @@ interface LoadingPage {
   component: ReactNode
 }
 
-export default function LoadingPage({ loading, component }: LoadingPage) {
+export default function LoadingPage({ loading, component }: Readonly<LoadingPage>) {
   return (
     <div
       className={[

@@ -6,7 +6,7 @@ import classNames from '@functions/classNames'
 
 import Container from '@components/Fragments/Container'
 import PageTitle from '@components/Fragments/PageTitle'
-import ButtonPrimary from '@components/Fragments/ButtonPrimary'
+import PrimaryButton from '@components/Fragments/ButtonPrimary'
 import MailIcon from '@assets/icons/envelope-open-filled.svg?react'
 import PhoneIcon from '@assets/icons/phone-square-filled.svg?react'
 import PlaneIcon from '@assets/icons/plane-filled.svg?react'
@@ -126,9 +126,9 @@ function ContactPage({ data }: Readonly<{ data: IDataContactPage }>) {
               />
             </div>
             <div>
-              <ButtonPrimary icon={<PlaneIcon />} disabled={loading}>
+              <PrimaryButton icon={<PlaneIcon />} disabled={loading}>
                 Send message
-              </ButtonPrimary>
+              </PrimaryButton>
             </div>
           </form>
         </div>
