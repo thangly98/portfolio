@@ -5,6 +5,7 @@ type Props = {
   animation: 'fade' | 'fade-right' | 'fade-left' | 'zoom-in' | 'zoom-in-up'
   animationDuration?: number
   animationDelay?: number
+  onShow?: (show: boolean) => void
 }
 
 function Animate({ children, ...props }: Props) {
@@ -37,12 +38,17 @@ function Animate({ children, ...props }: Props) {
     isElementInViewport()
     window.addEventListener('scroll', isElementInViewport)
     return () => window.removeEventListener('scroll', isElementInViewport)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   const isElementInViewport = () => {
     if (ref.current) {
       const rect = ref.current.getBoundingClientRect()
-      if (rect.top >= 0 && rect.bottom <= window.innerHeight) setStyle((s) => ({ ...s, opacity: 1, transform: 'translate3d(0, 0, 0) scale(1)' }))
+      if (rect.top >= 0 && rect.bottom <= window.innerHeight) {
+        props.onShow?.(true)
+        window.removeEventListener('scroll', isElementInViewport)
+        setStyle((s) => ({ ...s, opacity: 1, transform: 'translate3d(0, 0, 0) scale(1)' }))
+      }
     }
   }
 

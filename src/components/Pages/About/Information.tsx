@@ -49,7 +49,7 @@ function PersonalInfos({ data }: Readonly<{ data: IResumeType }>) {
 
   return (
     <div className={classNames('flex flex-wrap gap-y-12 -mx-4', 'max-md:pt-24')}>
-      <div className={classNames('basis-1/2 px-4', 'max-md:basis-full')}>
+      <div className={classNames('basis-2/5 px-4', 'max-md:basis-full')}>
         <h3 className={classNames('mb-5', 'text-2xl font-bold uppercase')}>Personal infos</h3>
         <img
           src={information.avatar}
@@ -90,16 +90,16 @@ function PersonalInfos({ data }: Readonly<{ data: IResumeType }>) {
             </li>
           </Animate>
         </ul>
-        <Animate animation='fade' animationDelay={1200}>
+        <Animate animation='fade' animationDelay={1400}>
           <a className='inline-flex' href='/static/QuocThangLy_FrontendDeveloper.pdf' target='_blank'>
             <PrimaryButton icon={<DownloadIcon />}>Download CV</PrimaryButton>
           </a>
         </Animate>
       </div>
-      <div className={classNames('basis-1/2 px-4', 'max-md:basis-full')}>
+      <div className={classNames('basis-3/5 px-4', 'max-md:basis-full')}>
         <div className={classNames('grid grid-cols-2 gap-8')}>
           {counterInfos.map(({ title, count }, index) => (
-            <Animate key={new Date().getTime() + index} animation='zoom-in' animationDelay={500 + index * 100}>
+            <Animate key={new Date().getTime() + index} animation='zoom-in' animationDelay={500 + index * 200}>
               <div className={classNames('p-6', 'border border-[--border-color] rounded')}>
                 <h4 className={classNames('text-5xl text-primary font-bold')}>
                   {count}

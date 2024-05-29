@@ -1,0 +1,15 @@
+.text-running {
+  span {
+    border-right: 2px solid red;
+    animation: blinkTextCursor 500ms steps(44) infinite;
+
+    @keyframes blinkTextCursor {
+      from {
+        border-right-color: red;
+      }
+      to {
+        border-right-color: transparent;
+      }
+    }
+  }
+}

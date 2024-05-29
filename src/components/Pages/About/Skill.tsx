@@ -13,8 +13,8 @@ function MySkills({ data }: Readonly<{ data: ISkillType[] }>) {
       </Animate>
       <div className={classNames('grid grid-cols-2 lg:grid-cols-4 gap-y-14')}>
         {data.map(({ name, point }) => (
-          <Animate key={name} animation='zoom-in-up'>
-            <div className={classNames('flex flex-col items-center text-center')}>
+          <div key={name} className={classNames('flex flex-col items-center text-center')}>
+            <Animate animation='zoom-in'>
               <div
                 className={classNames(
                   'relative text-9xl text-[120px] w-[1em] h-[1em] font-semibold',
@@ -38,9 +38,11 @@ function MySkills({ data }: Readonly<{ data: ISkillType[] }>) {
                   )}
                 </div>
               </div>
+            </Animate>
+            <Animate animation='zoom-in'>
               <h6 className={classNames('mt-5 font-medium uppercase')}>{name}</h6>
-            </div>
-          </Animate>
+            </Animate>
+          </div>
         ))}
       </div>
     </section>

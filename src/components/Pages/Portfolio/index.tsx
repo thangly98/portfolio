@@ -19,7 +19,7 @@ function PortfolioPage({ data }: Readonly<{ data: IProject[] }>) {
   }
 
   return (
-    <Container className={classNames('max-md:py-24')}>
+    <Container className={classNames('pb-20 max-md:py-24')}>
       <PageTitle title='My Portfolio' titleBg='Works' />
 
       <div className={classNames('grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8')}>

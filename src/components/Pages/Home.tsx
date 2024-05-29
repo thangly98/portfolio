@@ -16,7 +16,7 @@ function HomePage({ data }: Readonly<{ data: IDataHomePage }>) {
         className={classNames(
           'grid grid-cols-[2fr_3fr] content-center gap-10',
           'min-h-screen',
-          'md:max-lg:text-center max-lg:grid-cols-[100%] max-lg:pt-10 max-lg:pb-60',
+          'md:max-lg:text-center max-lg:grid-cols-[100%] max-lg:py-10',
           'max-md:text-sm'
         )}>
         <div className={classNames('max-md:hidden')}>
@@ -29,7 +29,7 @@ function HomePage({ data }: Readonly<{ data: IDataHomePage }>) {
             )}
           />
         </div>
-        <div className={classNames(' max-w-2xl mx-auto', 'content-center')}>
+        <div className={classNames('max-w-2xl mx-auto', 'content-center')}>
           <Animate animation='fade' animationDelay={500}>
             <h1
               className={classNames(
