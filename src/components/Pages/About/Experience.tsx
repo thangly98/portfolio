@@ -1,9 +1,10 @@
+import { useState } from 'react'
+import parse, { DOMNode, Element, attributesToProps, domToReact } from 'html-react-parser'
 import classNames from '@functions/classNames'
 import BackpackIcon from '@assets/icons/backpack-filled.svg?react'
 import SquareAcademicIcon from '@assets/icons/squarea-cademic-filled.svg?react'
 import Animate from '@components/Fragments/Animate'
 import { IEducationType, IExperienceType } from '.'
-import { useState } from 'react'
 
 function MyExperiences({ data }: Readonly<{ data: { educations: IEducationType[]; experiences: IExperienceType[] } }>) {
   return (
@@ -61,12 +62,31 @@ function Item({ data, type, ...props }: Readonly<{ data: IEducationType | IExper
             <span className={classNames('text-[.9375rem] font-semibold opacity-80')}>{data.name}</span>
           </h5>
         </Animate>
-        <Animate animation='fade' onShow={setIsShow}>
-          <div
-            className={classNames('text-sm text-[#eee] leading-[1.6]', '[&_ul]:list-disc [&_ul]:list-inside [&_p]:mt-2')}
-            dangerouslySetInnerHTML={{ __html: data.content }}
-          />
-        </Animate>
+
+        <div className={classNames('text-sm text-[#eee] leading-[1.6]', '[&_ul]:list-disc [&_ul]:list-inside [&_p]:mt-2')}>
+          {parse(data.content, {
+            replace(domNode) {
+              const domElement: Element = domNode as unknown as Element
+              const props = domElement.attribs ? attributesToProps(domElement.attribs) : {}
+
+              if (domElement.tagName === 'li') {
+                return (
+                  <Animate animation='fade' onShow={setIsShow}>
+                    <li {...props}>{domToReact(domElement.children as DOMNode[])}</li>
+                  </Animate>
+                )
+              }
+
+              if (domElement.tagName === 'p') {
+                return (
+                  <Animate animation='fade' onShow={setIsShow}>
+                    <p {...props}>{domToReact(domElement.children as DOMNode[])}</p>
+                  </Animate>
+                )
+              }
+            },
+          })}
+        </div>
       </div>
     </li>
     // </Animate>

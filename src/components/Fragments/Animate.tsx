@@ -8,6 +8,18 @@ type Props = {
   onShow?: (show: boolean) => void
 }
 
+/**
+ * Renders a component with animations based on the provided props.
+ *
+ * @param {ReactElement} children - The component to be rendered with animations.
+ * @param {Props} props - The props object containing the animation type, animation duration, animation delay, and onShow callback.
+ * @param {string} props.animation - The type of animation to be applied. Can be 'fade', 'fade-right', 'fade-left', 'zoom-in', or 'zoom-in-up'.
+ * @param {number} [props.animationDuration] - The duration of the animation in milliseconds. Defaults to 1000.
+ * @param {number} [props.animationDelay] - The delay before the animation starts in milliseconds. Defaults to 300.
+ * @param {Function} [props.onShow] - A callback function to be called when the component is shown.
+ * @return {ReactElement} The rendered component with animations.
+ */
+
 function Animate({ children, ...props }: Props) {
   const ref = useRef<HTMLElement>()
   const [style, setStyle] = useState<CSSProperties>(() => {
