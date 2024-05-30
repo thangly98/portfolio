@@ -3,30 +3,16 @@ import { IProject } from '@pages/Portfolio'
 
 function ProjectItem({ data, onClick }: Readonly<{ data: IProject; onClick?: (data: IProject) => void }>) {
   return (
-    <div
-      className={classNames(
-        'relative cursor-pointer group',
-        'bg-slate-200 rounded-md overflow-hidden',
-        'after:absolute after:top-0 after:left-0 after:bottom-0 after:right-0 after:-translate-y-full',
-        'after:bg-[linear-gradient(transparent_5%,rgba(13,13,13,0.9))] after:opacity-0 after:transition after:duration-300 after:z-10',
-        'hover:after:translate-y-0 hover:after:opacity-70'
-      )}
-      onClick={() => onClick?.(data)}>
-      <img
-        className={classNames('aspect-[34/21] object-cover', 'group-hover:scale-110', 'transition-all duration-300')}
-        src={data.thumbnail}
-        alt=''
-      />
+    <div className={classNames('group relative text-center rounded-xl overflow-hidden cursor-pointer')} onClick={() => onClick?.(data)}>
+      <img src={data.thumbnail} alt={data.name} className={classNames('max-w-full w-full h-auto aspect-[5/4] object-cover object-top')} />
       <div
         className={classNames(
-          'p-7',
-          'absolute top-0 left-0 bottom-0 right-0 translate-y-1/2 z-20',
-          'flex items-end justify-end',
-          'text-2xl font-semibold text-primary opacity-0',
-          'group-hover:translate-y-0 group-hover:opacity-100',
-          'transition-all duration-300'
+          'absolute left-4 right-4 bottom-4 translate-y-5',
+          'rounded-xl bg-white bg-opacity-70 dark:bg-black dark:bg-opacity-40 backdrop-blur-sm backdrop-saturate-200',
+          'opacity-0 transition duration-500 group-hover:translate-y-0 group-hover:opacity-100 text-center px-3 py-4'
         )}>
-        {data.name}
+        <h5 className={classNames('text-2xl font-medium mb-1')}>{data.name}</h5>
+        <p className={classNames('mb-0 text-sm')}>{data.introduction}</p>
       </div>
     </div>
   )
