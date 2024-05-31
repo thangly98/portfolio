@@ -112,9 +112,19 @@ function ProjectViewer({ open, data, onClose }: Readonly<{ open?: boolean; data?
                   <CodeIcon />
                   Technologies :&nbsp;
                 </span>
-                {data.technology.join(', ')}
+                {data.technology.map((tech) => (
+                  <kbd
+                    key={tech}
+                    className={classNames(
+                      'px-1.5 py-1 mr-2 mb-2 inline-block',
+                      'text-xs font-semibold text-gray-800 bg-gray-100 border border-gray-200 rounded-md',
+                      'dark:bg-gray-600 dark:text-gray-100 dark:border-gray-500'
+                    )}>
+                    {tech}
+                  </kbd>
+                ))}
               </li>
-              <li>
+              <li className={classNames('-mt-2')}>
                 <span>
                   <LinkIcon />
                   Preview :&nbsp;

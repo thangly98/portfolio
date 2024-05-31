@@ -59,38 +59,38 @@ function PersonalInfos({ data }: Readonly<{ data: IResumeType }>) {
           )}
         />
         <ul className={classNames('[&_li]:mb-5', 'text-[.9375rem] font-semibold [&_li_span]:font-normal', 'max-sm:text-sm')}>
-          <Animate animation='fade-right' animationDelay={500}>
+          <Animate animation='fade-right'>
             <li>
               <span className={classNames('opacity-80')}>Full Name : </span>
               {information.last_name + ' ' + information.first_name}
             </li>
           </Animate>
-          <Animate animation='fade-right' animationDelay={600}>
+          <Animate animation='fade-right' animationDelay={100}>
             <li>
               <span className={classNames('opacity-80')}>Date of birth : </span>
               {information.birthday}
             </li>
           </Animate>
-          <Animate animation='fade-right' animationDelay={700}>
+          <Animate animation='fade-right' animationDelay={200}>
             <li>
               <span className={classNames('opacity-80')}>Address : </span>
               {information.address}
             </li>
           </Animate>
-          <Animate animation='fade-right' animationDelay={800}>
+          <Animate animation='fade-right' animationDelay={300}>
             <li>
               <span className={classNames('opacity-80')}>Phone : </span>
               <a href={'tel:' + information.phone}>{information.phone}</a>
             </li>
           </Animate>
-          <Animate animation='fade-right' animationDelay={900}>
+          <Animate animation='fade-right' animationDelay={400}>
             <li>
               <span className={classNames('opacity-80')}>Email : </span>
               <a href={'mailto:' + information.email}>{information.email}</a>
             </li>
           </Animate>
         </ul>
-        <Animate animation='fade' animationDelay={1400}>
+        <Animate animation='fade' animationDelay={700}>
           <a className='inline-flex' href='/static/QuocThangLy_FrontendDeveloper.pdf' target='_blank'>
             <PrimaryButton icon={<DownloadIcon />}>Download CV</PrimaryButton>
           </a>
@@ -99,7 +99,7 @@ function PersonalInfos({ data }: Readonly<{ data: IResumeType }>) {
       <div className={classNames('basis-3/5 px-4', 'max-md:basis-full')}>
         <div className={classNames('grid grid-cols-2 gap-8')}>
           {counterInfos.map(({ title, count }, index) => (
-            <Animate key={new Date().getTime() + index} animation='zoom-in' animationDelay={500 + index * 200}>
+            <Animate key={new Date().getTime() + index} animation='zoom-in' animationDelay={index * 100}>
               <div className={classNames('p-6', 'border border-[--border-color] rounded')}>
                 <h4 className={classNames('text-5xl text-primary font-bold')}>
                   {count}

@@ -33,7 +33,6 @@ function MyExperiences({ data }: Readonly<{ data: { educations: IEducationType[]
 function Item({ data, type, ...props }: Readonly<{ data: IEducationType | IExperienceType; type: 'education' | 'experience' }>) {
   const [isShow, setIsShow] = useState(false)
   return (
-    // <Animate animation='fade-right'>
     <li {...props} className={classNames('[--timeline-icon-w:40px]', 'grid grid-cols-[var(--timeline-icon-w)_1fr] gap-5', ' mb-12 leading-none')}>
       <div
         className={classNames(
@@ -89,7 +88,6 @@ function Item({ data, type, ...props }: Readonly<{ data: IEducationType | IExper
         </div>
       </div>
     </li>
-    // </Animate>
   )
 }
 

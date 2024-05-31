@@ -11,8 +11,8 @@ export default function LoadingPage({ loading, component }: Readonly<LoadingPage
     <div
       className={[
         'relative min-h-screen',
-        'after:absolute after:top-0 after:left-0 after:w-full after:h-full after:z-10 after:bg-[#222222]',
-        !loading ? 'after:animate-page-loading' : '',
+        // 'after:absolute after:top-0 after:left-0 after:w-full after:h-full after:z-10 after:bg-[#222222]',
+        // !loading ? 'after:animate-page-loading' : '',
       ].join(' ')}>
       {loading && (
         <div className='absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-20'>
