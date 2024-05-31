@@ -14,10 +14,10 @@ function ProjectItem({ data, onClick }: Readonly<{ data: IProject; onClick?: (da
         <div
           className={classNames(
             'absolute left-4 right-4 bottom-4 translate-y-4',
-            'rounded-xl bg-white bg-opacity-70 dark:bg-black dark:bg-opacity-40 backdrop-blur-sm backdrop-saturate-200',
+            'rounded-xl bg-white text-black bg-opacity-70 dark:text-white dark:bg-black dark:bg-opacity-40 backdrop-blur-sm backdrop-saturate-200',
             'opacity-0 transition duration-500 group-hover:translate-y-0 group-hover:opacity-100 text-center px-3 py-4'
           )}>
-          <h5 className={classNames('text-2xl font-medium mb-1')}>{data.name}</h5>
+          <h5 className={classNames('text-2xl text-primary dark:text-white font-semibold mb-1')}>{data.name}</h5>
           <p className={classNames('mb-0 text-sm')}>{data.introduction}</p>
         </div>
       </div>
