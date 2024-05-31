@@ -51,13 +51,16 @@ function PersonalInfos({ data }: Readonly<{ data: IResumeType }>) {
     <div className={classNames('flex flex-wrap gap-y-12 -mx-4', 'max-md:pt-24')}>
       <div className={classNames('basis-2/5 px-4', 'max-md:basis-full')}>
         <h3 className={classNames('mb-5', 'text-2xl font-bold uppercase')}>Personal infos</h3>
-        <img
-          src={information.avatar}
-          alt=''
-          className={classNames(
-            'sm:hidden w-48 aspect-square mx-auto mb-8 object-cover rounded-[50%] object-bottom border-4 border-[--border-color]'
-          )}
-        />
+        <Animate animation='flip-left'>
+          <img
+            src={information.avatar}
+            alt={data.information.last_name + "'s avatar"}
+            className={classNames(
+              'sm:hidden w-48 aspect-square mx-auto mb-8 object-cover rounded-[50%] object-bottom border-4 border-[--border-color] bg-gray-50'
+            )}
+            onError={(e) => e.currentTarget.classList.add('hidden')}
+          />
+        </Animate>
         <ul className={classNames('[&_li]:mb-5', 'text-[.9375rem] font-semibold [&_li_span]:font-normal', 'max-sm:text-sm')}>
           <Animate animation='fade-right'>
             <li>
@@ -65,32 +68,32 @@ function PersonalInfos({ data }: Readonly<{ data: IResumeType }>) {
               {information.last_name + ' ' + information.first_name}
             </li>
           </Animate>
-          <Animate animation='fade-right' animationDelay={100}>
+          <Animate animation='fade-right' animationDelay={50}>
             <li>
               <span className={classNames('opacity-80')}>Date of birth : </span>
               {information.birthday}
             </li>
           </Animate>
-          <Animate animation='fade-right' animationDelay={200}>
+          <Animate animation='fade-right' animationDelay={100}>
             <li>
               <span className={classNames('opacity-80')}>Address : </span>
               {information.address}
             </li>
           </Animate>
-          <Animate animation='fade-right' animationDelay={300}>
+          <Animate animation='fade-right' animationDelay={150}>
             <li>
               <span className={classNames('opacity-80')}>Phone : </span>
               <a href={'tel:' + information.phone}>{information.phone}</a>
             </li>
           </Animate>
-          <Animate animation='fade-right' animationDelay={400}>
+          <Animate animation='fade-right' animationDelay={200}>
             <li>
               <span className={classNames('opacity-80')}>Email : </span>
               <a href={'mailto:' + information.email}>{information.email}</a>
             </li>
           </Animate>
         </ul>
-        <Animate animation='fade' animationDelay={700}>
+        <Animate animation='fade' animationDelay={400}>
           <a className='inline-flex' href='/static/QuocThangLy_FrontendDeveloper.pdf' target='_blank'>
             <PrimaryButton icon={<DownloadIcon />}>Download CV</PrimaryButton>
           </a>

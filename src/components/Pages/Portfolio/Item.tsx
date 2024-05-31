@@ -18,7 +18,7 @@ function ProjectItem({ data, onClick }: Readonly<{ data: IProject; onClick?: (da
             'opacity-0 transition duration-500 group-hover:translate-y-0 group-hover:opacity-100 text-center px-3 py-4'
           )}>
           <h5 className={classNames('text-2xl text-primary dark:text-white font-semibold mb-1')}>{data.name}</h5>
-          <p className={classNames('mb-0 text-sm')}>{data.introduction}</p>
+          <p className={classNames('mb-0 text-sm line-clamp-3')}>{data.introduction}</p>
         </div>
       </div>
     </Animate>
