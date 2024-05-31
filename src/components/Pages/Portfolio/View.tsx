@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from 'react'
 
 import classNames from '@functions/classNames'
 
+import Keyboard from '@components/Fragments/Keyboard'
 import AchievementIcon from '@assets/icons/achievement-outline.svg?react'
 import CloseIcon from '@assets/icons/close-outline.svg?react'
 import CodeIcon from '@assets/icons/code-outline.svg?react'
@@ -16,6 +17,11 @@ import type { IProject } from '@pages/Portfolio'
 function ProjectViewer({ open, data, onClose }: Readonly<{ open?: boolean; data?: IProject; onClose: () => void }>) {
   const [isRender, setIsRender] = useState<boolean>(false)
   const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null)
+
+  useEffect(() => {
+    if (open) document.body.style.overflow = 'hidden'
+    else document.body.style.overflow = 'unset'
+  }, [open])
 
   useEffect(() => {
     if (open) setIsRender(true)
@@ -113,15 +119,7 @@ function ProjectViewer({ open, data, onClose }: Readonly<{ open?: boolean; data?
                   Technologies :&nbsp;
                 </span>
                 {data.technology.map((tech) => (
-                  <kbd
-                    key={tech}
-                    className={classNames(
-                      'px-1.5 py-1 mr-2 mb-2 inline-block',
-                      'text-xs font-semibold text-gray-800 bg-gray-100 border border-gray-200 rounded-md',
-                      'dark:bg-gray-600 dark:text-gray-100 dark:border-gray-500'
-                    )}>
-                    {tech}
-                  </kbd>
+                  <Keyboard key={tech} text={tech} />
                 ))}
               </li>
               <li className={classNames('-mt-2')}>
@@ -135,6 +133,12 @@ function ProjectViewer({ open, data, onClose }: Readonly<{ open?: boolean; data?
               </li>
             </ul>
             <img key={data.thumbnail} src={data.thumbnail} alt='' className={classNames('w-full h-auto rounded-md')} />
+            {data.galleries?.map(({ url, caption }) => (
+              <div className={classNames('mt-4')}>
+                <img key={url} src={url} alt='' className={classNames('w-full h-auto rounded-md')} />
+                <p className={classNames('py-1 text-sm italic text-gray-300 text-center')}>{caption}</p>
+              </div>
+            ))}
           </>
         )}
       </div>

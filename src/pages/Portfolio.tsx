@@ -5,6 +5,7 @@ import useFetchApi from 'src/hooks/useFetchApi'
 type IProject = {
   name: string
   thumbnail?: string
+  galleries?: { url: string; caption?: string }[]
   introduction: string
   position: string
   members: number
