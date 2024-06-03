@@ -134,8 +134,8 @@ function ProjectViewer({ open, data, onClose }: Readonly<{ open?: boolean; data?
             </ul>
             <img key={data.thumbnail} src={data.thumbnail} alt='' className={classNames('w-full h-auto rounded-md')} />
             {data.galleries?.map(({ url, caption }) => (
-              <div className={classNames('mt-4')}>
-                <img key={url} src={url} alt='' className={classNames('w-full h-auto rounded-md')} />
+              <div key={url} className={classNames('mt-4')}>
+                <img src={url} alt='' className={classNames('w-full h-auto rounded-md')} />
                 <p className={classNames('py-1 text-sm italic text-gray-300 text-center')}>{caption}</p>
               </div>
             ))}

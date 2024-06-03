@@ -70,7 +70,7 @@ function Item({ data, type, ...props }: Readonly<{ data: IEducationType | IExper
 
               if (domElement.tagName === 'li') {
                 return (
-                  <Animate animation='fade' animationDelay={100} onShow={setIsShow}>
+                  <Animate animation='fade' onShow={setIsShow}>
                     <li {...props}>{domToReact(domElement.children as DOMNode[])}</li>
                   </Animate>
                 )
@@ -78,7 +78,7 @@ function Item({ data, type, ...props }: Readonly<{ data: IEducationType | IExper
 
               if (domElement.tagName === 'p') {
                 return (
-                  <Animate animation='fade' animationDelay={100} onShow={setIsShow}>
+                  <Animate animation='fade' onShow={setIsShow}>
                     <p {...props}>{domToReact(domElement.children as DOMNode[])}</p>
                   </Animate>
                 )
