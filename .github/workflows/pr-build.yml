@@ -1,0 +1,33 @@
+name: PR Build and Test
+
+# Kích hoạt khi có Pull Request được mở hoặc cập nhật
+on:
+  pull_request:
+    branches:
+      - main # Kiểm tra khi có PR vào nhánh chính, bạn có thể thay đổi sang nhánh khác nếu cần
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    # Thiết lập môi trường Node.js (hoặc ngôn ngữ khác, tùy thuộc vào dự án của bạn)
+    - name: Setup Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '16'
+
+    # Cài đặt dependencies
+    - name: Install dependencies
+      run: npm install
+
+    # Build dự án
+    - name: Build
+      run: npm run build
+
+    # Chạy các test
+    - name: Run tests
+      run: npm test
