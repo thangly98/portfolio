@@ -8,6 +8,7 @@ export default {
   theme: {
     extend: {
       colors: { primary: '#ffb400' },
+      
       keyframes: {
         'loading-page': {
           from: { top: 0, height: '100vh' },
