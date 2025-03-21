@@ -1,35 +1,40 @@
-import { useEffect, useRef } from 'react'
-import { Link } from 'react-router-dom'
-import classNames from '@functions/classNames'
-import Container from '@components/Fragments/Container'
+import { useEffect, useRef } from 'react';
+import { Link } from 'react-router-dom';
+
+import classNames from '@functions/classNames';
+
+import Container from '@components/Fragments/Container';
+import GlitchText from '@components/Fragments/GlitchText';
+import StarBorder from '@components/Fragments/StarBorder';
 
 function NotFoundPage() {
-  const indexCharacterRef = useRef<number>(0)
+  const indexCharacterRef = useRef<number>(0);
 
   useEffect(() => {
-    const characterActive = document.querySelectorAll('li.active')
+    const characterActive = document.querySelectorAll('li.active');
     const interval = setInterval(() => {
       if (indexCharacterRef.current < characterActive.length) {
-        characterActive?.[indexCharacterRef.current].classList.add('!bg-primary', '!text-white', '!font-medium')
-        indexCharacterRef.current++
-      } else clearInterval(interval)
-    }, 500)
+        characterActive?.[indexCharacterRef.current].classList.add('!bg-primary', '!text-white', '!font-medium');
+        indexCharacterRef.current++;
+      } else clearInterval(interval);
+    }, 500);
 
-    return () => clearInterval(interval)
-  }, [indexCharacterRef])
+    return () => clearInterval(interval);
+  }, [indexCharacterRef]);
 
   return (
     <Container>
-      <div className={classNames('min-h-dvh', 'grid lg:grid-cols-2 gap-x-20 gap-y-10', 'max-md:content-center max-md:text-center')}>
+      <div className={classNames('min-h-dvh', 'grid gap-x-20 gap-y-10 lg:grid-cols-2', 'max-md:content-center max-md:text-center')}>
         <div className={classNames('content-center')}>
           <ul
             className={classNames(
               'grid grid-cols-8',
-              '[&_li]:flex [&_li]:items-center [&_li]:justify-center [&_li]:aspect-square',
-              '[&_li]:uppercase [&_li]:text-xl [&_li]:text-slate-300',
+              '[&_li]:flex [&_li]:aspect-square [&_li]:items-center [&_li]:justify-center',
+              '[&_li]:text-xl [&_li]:uppercase [&_li]:text-slate-300',
               '[&_li]:border-2 [&_li]:border-[#111] [&_li]:bg-[--border-color]',
               '[&_li]:transition-all [&_li]:duration-300'
-            )}>
+            )}
+          >
             <li>k</li>
             <li>v</li>
             <li>n</li>
@@ -97,14 +102,20 @@ function NotFoundPage() {
           </ul>
         </div>
         <div className={classNames('content-center')}>
-          <h1 className={classNames('text-3xl')}>Oops! Something is wrong.</h1>
+          <h1 className={classNames('text-3xl')}>
+            <GlitchText speed={1} enableOnHover className='!text-4xl font-bold'>
+              Oops! Something is wrong.
+            </GlitchText>
+          </h1>
           <Link to={'/'}>
-            <button className={classNames('mt-10 px-6 py-4', 'font-semibold bg-[--border-color] rounded-md')}>Go to Homepage</button>
+            <StarBorder className='mt-10' color='#ffb400'>
+              Go to Homepage
+            </StarBorder>
           </Link>
         </div>
       </div>
     </Container>
-  )
+  );
 }
 
-export default NotFoundPage
+export default NotFoundPage;

@@ -1,63 +1,73 @@
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
 
-import classNames from '@functions/classNames'
+import ArrowRightIcon from '@assets/icons/map-arrow-right-filled.svg?react';
+import classNames from '@functions/classNames';
 
-import ArrowRightIcon from '@assets/icons/map-arrow-right-filled.svg?react'
-import PrimaryButton from '@components/Fragments/PrimaryButton'
-import Animate from '@components/Fragments/Animate'
-
-import { IDataHomePage } from '@pages/Home'
+import Animate from '@components/Fragments/Animate';
+import PrimaryButton from '@components/Fragments/PrimaryButton';
+import ShinyText from '@components/Fragments/ShinyText';
+import TiltedCard from '@components/Fragments/TiltedCard';
+import { IDataHomePage } from '@pages/Home';
 
 function HomePage({ data }: Readonly<{ data: IDataHomePage }>) {
   return (
-    <div className='container px-4 mx-auto'>
-      <div className={classNames('bg-primary', 'fixed -top-1/2 -left-[83%] w-full h-[200%] -rotate-[15deg] -z-10', 'max-lg:hidden')} />
+    <div className='container mx-auto px-4'>
+      <div className={classNames('bg-primary', 'fixed -left-[83%] -top-1/2 -z-10 h-[200%] w-full -rotate-[15deg]', 'max-lg:hidden')} />
       <div
         className={classNames(
           'grid grid-cols-[2fr_3fr] content-center gap-10',
           'min-h-screen',
-          'md:max-lg:text-center max-lg:grid-cols-[100%] max-lg:py-10',
+          'max-lg:grid-cols-[100%] max-lg:py-10 md:max-lg:text-center',
           'max-md:text-sm'
-        )}>
+        )}
+      >
         <Animate animation='flip-left'>
-          <img
-            src={data.avatar}
-            alt=''
-            className={classNames(
-              'w-full h-auto rounded-3xl bg-[--border-color] lg:shadow-[0_0_7px_rgba(0,0,0,.9)]',
-              'max-md:hidden',
-              'max-lg:w-60 max-lg:aspect-square max-lg:rounded-[50%] max-lg:object-cover max-lg:object-bottom max-lg:mx-auto max-lg:border-4 border-[--border-color]'
-            )}
-          />
+          <div className='flex justify-center max-md:hidden'>
+            <TiltedCard
+              imageSrc={data.avatar}
+              containerWidth={500}
+              containerHeight={500}
+              imageWidth={500}
+              imageHeight={500}
+              showTooltip={false}
+              showMobileWarning={false}
+            />
+          </div>
         </Animate>
-        <div className={classNames('max-w-2xl mx-auto', 'content-center')}>
+
+        <div className={classNames('mx-auto max-w-2xl', 'content-center')}>
           <Animate animation='fade'>
             <h1
               className={classNames(
                 'relative pl-20',
-                'text-5xl leading-tight font-bold text-primary uppercase',
-                'before:absolute before:top-7 before:left-0 before:w-10 before:h-1 before:bg-primary',
-                'max-lg:before:content-none max-lg:pl-0 max-lg:text-4xl',
+                'text-5xl font-bold uppercase leading-tight text-primary',
+                'before:absolute before:left-0 before:top-7 before:h-1 before:w-10 before:bg-primary',
+                'max-lg:pl-0 max-lg:text-4xl max-lg:before:content-none',
                 'max-md:text-2xl'
-              )}>
-              I'm {data.last_name} {data.first_name}.<span className={classNames('block', 'text-white')}>Front-end Developer</span>
+              )}
+            >
+              I'm {data.last_name} {data.first_name}.<span className={classNames('block', 'text-white')}>Front-end Engineer</span>
             </h1>
           </Animate>
           <Animate animation='fade' animationDelay={200}>
-            <div
+            <ShinyText
+              text={data.introduction}
+              className={classNames('mb-7 mt-5', 'font-medium leading-loose', '[&_li]:mt-2 [&_ul]:list-inside [&_ul]:list-disc')}
+            />
+            {/* <div
               className={classNames('mt-5 mb-7', 'font-medium leading-loose', '[&_ul]:list-disc [&_ul]:list-inside [&_li]:mt-2')}
               dangerouslySetInnerHTML={{ __html: data.introduction }}
-            />
+            /> */}
           </Animate>
           <Animate animation='fade' animationDelay={400}>
-            <Link to={'/about'} className='md:max-lg:flex max-lg:justify-center'>
+            <Link to={'/about'} className='max-lg:justify-center md:max-lg:flex'>
               <PrimaryButton icon={<ArrowRightIcon />}>More about me</PrimaryButton>
             </Link>
           </Animate>
         </div>
       </div>
     </div>
-  )
+  );
 }
 
-export default HomePage
+export default HomePage;
