@@ -1,0 +1,26 @@
+{
+  "printWidth": 140,
+  "tabWidth": 2,
+  "singleQuote": true,
+  "trailingComma": "es5",
+  "bracketSpacing": true,
+  "semi": true,
+  "useTabs": false,
+  "arrowParens": "always",
+  "jsxSingleQuote": true,
+  "bracketSameLine": false,
+  "plugins": ["@ianvs/prettier-plugin-sort-imports", "prettier-plugin-tailwindcss"],
+  "importOrder": [
+    "^react$",
+    "^react-.*$",
+    "",
+    "<THIRD_PARTY_MODULES>",
+    "",
+    "^(@assets|hooks|@functions|api|socket|store|routes|auth|types)",
+    "",
+    "^(@pages|@components)",
+    "",
+    "^[./]"
+  ],
+  "importOrderSortSpecifiers": true
+}
