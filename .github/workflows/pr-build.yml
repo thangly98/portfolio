@@ -11,23 +11,23 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v3
+      - name: Checkout code
+        uses: actions/checkout@v3
 
-    # Thiết lập môi trường Node.js (hoặc ngôn ngữ khác, tùy thuộc vào dự án của bạn)
-    - name: Setup Node.js
-      uses: actions/setup-node@v3
-      with:
-        node-version: '16'
+      # Thiết lập môi trường Node.js (hoặc ngôn ngữ khác, tùy thuộc vào dự án của bạn)
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
 
-    # Cài đặt dependencies
-    - name: Install dependencies
-      run: npm install
+      # Cài đặt dependencies
+      - name: Install dependencies
+        run: npm install
 
-    # Build dự án
-    - name: Build
-      run: npm run build
+      # Build dự án
+      - name: Build
+        run: npm run build
 
-    # Chạy các test
-    - name: Run tests
-      run: npm test
+      # Chạy các test
+      - name: Run tests
+        run: npm test
