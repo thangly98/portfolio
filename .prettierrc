@@ -16,7 +16,7 @@
     "",
     "<THIRD_PARTY_MODULES>",
     "",
-    "^(@assets|hooks|@functions|api|socket|store|routes|auth|types)",
+    "^(@assets|@components|@pages|@hooks|@utils|@config|@store|@types|@firebase)",
     "",
     "^(@pages|@components)",
     "",
