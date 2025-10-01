@@ -16,6 +16,7 @@
   },
   "dependencies": {
     "@emailjs/browser": "^4.3.3",
+    "@vercel/speed-insights": "^1.2.0",
     "framer-motion": "^12.5.0",
     "gsap": "^3.12.7",
     "html-react-parser": "^5.1.10",
