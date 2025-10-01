@@ -1,5 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 
+import classNames from '@functions/classNames';
 import { Camera, Geometry, Mesh, Program, Renderer } from 'ogl';
 
 interface ParticlesProps {
@@ -240,7 +241,7 @@ const Particles: React.FC<ParticlesProps> = ({
     particleColors,
   ]);
 
-  return <div ref={containerRef} className={`relative h-full w-full ${className}`} />;
+  return <div ref={containerRef} className={classNames('relative h-full w-full', className)} />;
 };
 
 export default Particles;

@@ -1,8 +1,8 @@
 import { ReactNode } from 'react';
 
-import DownloadIcon from '@assets/icons/download-filled.svg?react';
 import classNames from '@functions/classNames';
 
+import DownloadIcon from '@assets/icons/download-filled.svg?react';
 import Animate from '@components/Fragments/Animate';
 import CountUp from '@components/Fragments/CountUp';
 import PrimaryButton from '@components/Fragments/PrimaryButton';
@@ -100,7 +100,7 @@ function PersonalInfos({ data }: Readonly<{ data: IResumeType }>) {
           </Animate>
         </ul>
         <Animate animation='fade' animationDelay={400}>
-          <a className='inline-flex' href='/static/QuocThangLy_FrontendDeveloper.pdf' target='_blank'>
+          <a className='inline-flex' href={information.cv} target='_blank'>
             <PrimaryButton icon={<DownloadIcon />}>Download CV</PrimaryButton>
           </a>
         </Animate>

@@ -1,5 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 
+import classNames from '@functions/classNames';
+
 import AchievementIcon from '@assets/icons/achievement-outline.svg?react';
 import CloseIcon from '@assets/icons/close-outline.svg?react';
 import CodeIcon from '@assets/icons/code-outline.svg?react';
@@ -8,14 +10,18 @@ import LinkIcon from '@assets/icons/link-outline.svg?react';
 import UserGroupIcon from '@assets/icons/user-group-outline.svg?react';
 import UserIcon from '@assets/icons/user-outline.svg?react';
 import UserRoleIcon from '@assets/icons/user-role-outline.svg?react';
-import classNames from '@functions/classNames';
-
 import Keyboard from '@components/Fragments/Keyboard';
+import useClickOutside from '@hooks/useClickOutside';
+import useKeydown from '@hooks/useKeydown';
 import type { IProject } from '@pages/Portfolio';
 
 function ProjectViewer({ open, data, onClose }: Readonly<{ open?: boolean; data?: IProject; onClose: () => void }>) {
   const [isRender, setIsRender] = useState<boolean>(false);
   const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const ref = useRef<HTMLDivElement>(null);
+
+  useClickOutside(ref, onClose);
+  useKeydown('Escape', onClose);
 
   useEffect(() => {
     if (open) document.body.style.overflow = 'hidden';
@@ -28,13 +34,6 @@ function ProjectViewer({ open, data, onClose }: Readonly<{ open?: boolean; data?
 
     return () => clearTimeout(timeoutRef.current ?? undefined);
   }, [open]);
-
-  useEffect(() => {
-    const handleEsc = (e: KeyboardEvent) => e.key === 'Escape' && onClose();
-    window.addEventListener('keydown', handleEsc);
-    return () => window.removeEventListener('keydown', handleEsc);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
 
   return (
     <div
@@ -57,6 +56,7 @@ function ProjectViewer({ open, data, onClose }: Readonly<{ open?: boolean; data?
       </div>
 
       <div
+        ref={ref}
         className={classNames(
           open ? 'scale-100' : 'scale-110',
           'transition-all duration-300',

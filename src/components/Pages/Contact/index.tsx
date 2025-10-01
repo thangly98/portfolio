@@ -1,7 +1,8 @@
 import { FormEvent, useState } from 'react';
 
 import emailjs from '@emailjs/browser';
-import { ELinkName } from '@interfaces/data';
+import classNames from '@functions/classNames';
+import { ELinkName } from '@interfaces';
 
 import MailIcon from '@assets/icons/envelope-open-filled.svg?react';
 import FacebookIcon from '@assets/icons/facebook-filled.svg?react';
@@ -10,8 +11,6 @@ import LinkedinIcon from '@assets/icons/linkedin-filled.svg?react';
 import PhoneIcon from '@assets/icons/phone-square-filled.svg?react';
 import PlaneIcon from '@assets/icons/plane-filled.svg?react';
 import SkypeIcon from '@assets/icons/skype-filled.svg?react';
-import classNames from '@functions/classNames';
-
 import Container from '@components/Fragments/Container';
 import PageTitle from '@components/Fragments/PageTitle';
 import PrimaryButton from '@components/Fragments/PrimaryButton';

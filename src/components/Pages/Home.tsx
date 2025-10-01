@@ -1,8 +1,8 @@
 import { Link } from 'react-router-dom';
 
-import ArrowRightIcon from '@assets/icons/map-arrow-right-filled.svg?react';
 import classNames from '@functions/classNames';
 
+import ArrowRightIcon from '@assets/icons/map-arrow-right-filled.svg?react';
 import Animate from '@components/Fragments/Animate';
 import PrimaryButton from '@components/Fragments/PrimaryButton';
 import ShinyText from '@components/Fragments/ShinyText';
@@ -37,17 +37,20 @@ function HomePage({ data }: Readonly<{ data: IDataHomePage }>) {
 
         <div className={classNames('mx-auto max-w-2xl', 'content-center')}>
           <Animate animation='fade'>
-            <h1
+            <div
               className={classNames(
                 'relative pl-20',
-                'text-5xl font-bold uppercase leading-tight text-primary',
+                'text-5xl font-bold uppercase leading-tight',
                 'before:absolute before:left-0 before:top-7 before:h-1 before:w-10 before:bg-primary',
                 'max-lg:pl-0 max-lg:text-4xl max-lg:before:content-none',
                 'max-md:text-2xl'
               )}
             >
-              I'm {data.last_name} {data.first_name}.<span className={classNames('block', 'text-white')}>Front-end Engineer</span>
-            </h1>
+              <h1 className={classNames('text-primary mix-blend-normal')}>
+                I'm {data.last_name} {data.first_name}.
+              </h1>
+              <h2 className={classNames('text-white')}>Front-end Engineer</h2>
+            </div>
           </Animate>
           <Animate animation='fade' animationDelay={200}>
             <ShinyText
