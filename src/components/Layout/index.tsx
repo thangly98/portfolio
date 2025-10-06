@@ -1,5 +1,6 @@
 import { Outlet } from 'react-router-dom';
 
+import { Analytics } from '@vercel/analytics/react';
 import { SpeedInsights } from '@vercel/speed-insights/react';
 
 import Particles from '@components/Fragments/Particles';
@@ -11,6 +12,7 @@ function Layout() {
       <Menu />
       <Outlet />
 
+      <Analytics />
       <SpeedInsights />
 
       <div className='fixed left-0 top-0 -z-10 h-full w-full'>
