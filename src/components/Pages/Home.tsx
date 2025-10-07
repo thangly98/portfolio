@@ -7,9 +7,11 @@ import Animate from '@components/Fragments/Animate';
 import PrimaryButton from '@components/Fragments/PrimaryButton';
 import ShinyText from '@components/Fragments/ShinyText';
 import TiltedCard from '@components/Fragments/TiltedCard';
+import useWindowSize from '@hooks/useWindowSize';
 import { IDataHomePage } from '@pages/Home';
 
 function HomePage({ data }: Readonly<{ data: IDataHomePage }>) {
+  const windowSize = useWindowSize();
   return (
     <div className='container mx-auto px-4'>
       <div className={classNames('bg-primary', 'fixed -left-[83%] -top-1/2 -z-10 h-[200%] w-full -rotate-[15deg]', 'max-lg:hidden')} />
@@ -21,20 +23,22 @@ function HomePage({ data }: Readonly<{ data: IDataHomePage }>) {
           'max-md:text-sm'
         )}
       >
-        <Animate animation='flip-left'>
-          <div className='flex justify-center max-md:hidden'>
-            <TiltedCard
-              imageSrc={data.avatar}
-              fetchPriority='high'
-              containerWidth={500}
-              containerHeight={500}
-              imageWidth={500}
-              imageHeight={500}
-              showTooltip={false}
-              showMobileWarning={false}
-            />
-          </div>
-        </Animate>
+        {windowSize.width > 768 && (
+          <Animate animation='flip-left'>
+            <div className='flex justify-center max-md:hidden'>
+              <TiltedCard
+                imageSrc={data.avatar}
+                fetchPriority='high'
+                containerWidth={500}
+                containerHeight={500}
+                imageWidth={500}
+                imageHeight={500}
+                showTooltip={false}
+                showMobileWarning={false}
+              />
+            </div>
+          </Animate>
+        )}
 
         <div className={classNames('mx-auto max-w-2xl', 'content-center')}>
           <Animate animation='fade'>

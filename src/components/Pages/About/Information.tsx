@@ -62,7 +62,7 @@ function PersonalInfos({ data }: Readonly<{ data: IResumeType }>) {
             src={information.avatar}
             alt={data.information.last_name + "'s avatar"}
             className={classNames(
-              'mx-auto mb-8 aspect-square w-48 rounded-[50%] border-4 border-[--border-color] bg-gray-50 object-cover object-bottom sm:hidden'
+              'mx-auto mb-8 aspect-square w-48 rounded-[50%] border-4 border-[--border-color] bg-gray-50 object-cover sm:hidden'
             )}
             onError={(e) => e.currentTarget.classList.add('hidden')}
           />
