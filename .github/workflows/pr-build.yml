@@ -12,22 +12,26 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
-      # Thiết lập môi trường Node.js (hoặc ngôn ngữ khác, tùy thuộc vào dự án của bạn)
+      # Thiết lập môi trường Node.js
       - name: Setup Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
-          node-version: '18'
+          node-version: 18
+          cache: yarn
 
-      # Cài đặt dependencies
+      - name: Enable Corepack
+        run: corepack enable
+
+      # Cài đặt dependencies bằng Yarn để đồng bộ với dự án
       - name: Install dependencies
-        run: npm install
+        run: yarn install --immutable
 
       # Build dự án
       - name: Build
-        run: npm run build
+        run: yarn build
 
-      # Chạy các test
+      # Chạy các test (ở chế độ non-watch cho môi trường CI)
       - name: Run tests
-        run: npm test
+        run: yarn test --run
