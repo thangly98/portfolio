@@ -1,0 +1,70 @@
+name: Enforce PR Ready State
+
+on:
+  workflow_run:
+    workflows:
+      - PR Build and Test
+    types:
+      - completed
+
+permissions:
+  pull-requests: write
+  contents: read
+
+jobs:
+  toggle-pr-readiness:
+    runs-on: ubuntu-latest
+    if: ${{ github.event.workflow_run.event == 'pull_request' }}
+    steps:
+      - name: Toggle draft state based on build status
+        uses: actions/github-script@v7
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const conclusion = context.payload.workflow_run.conclusion;
+            const prs = context.payload.workflow_run.pull_requests || [];
+
+            if (!prs.length) {
+              core.info('No associated pull requests found.');
+              return;
+            }
+
+            for (const pr of prs) {
+              const prNumber = pr.number;
+              const nodeId = pr.node_id;
+
+              if (!nodeId) {
+                core.warning(`PR #${prNumber} is missing a node id; skipping.`);
+                continue;
+              }
+
+              if (conclusion === 'success') {
+                try {
+                  await github.graphql(
+                    `mutation ($id: ID!) {
+                      markPullRequestReadyForReview(input: {pullRequestId: $id}) {
+                        pullRequest { number }
+                      }
+                    }`,
+                    { id: nodeId }
+                  );
+                  core.info(`Marked PR #${prNumber} as ready for review.`);
+                } catch (error) {
+                  core.warning(`Could not mark PR #${prNumber} as ready: ${error.message}`);
+                }
+              } else {
+                try {
+                  await github.graphql(
+                    `mutation ($id: ID!) {
+                      convertPullRequestToDraft(input: {pullRequestId: $id}) {
+                        pullRequest { number }
+                      }
+                    }`,
+                    { id: nodeId }
+                  );
+                  core.info(`Converted PR #${prNumber} to draft due to ${conclusion} status.`);
+                } catch (error) {
+                  core.warning(`Could not convert PR #${prNumber} to draft: ${error.message}`);
+                }
+              }
+            }
