@@ -5,6 +5,7 @@ import { motion, useMotionValue, useSpring } from 'framer-motion';
 
 interface TiltedCardProps {
   imageSrc: React.ComponentProps<'img'>['src'];
+  fetchPriority?: React.ComponentProps<'img'>['fetchPriority'];
   altText?: string;
   captionText?: string;
   containerHeight?: React.CSSProperties['height'];
@@ -28,6 +29,7 @@ const springValues: SpringOptions = {
 export default function TiltedCard(props: Readonly<TiltedCardProps>) {
   const {
     imageSrc,
+    fetchPriority,
     altText = 'Tilted card image',
     captionText = '',
     containerHeight = '300px',
@@ -109,6 +111,7 @@ export default function TiltedCard(props: Readonly<TiltedCardProps>) {
       >
         <motion.img
           src={imageSrc}
+          fetchPriority={fetchPriority}
           alt={altText}
           className='absolute left-0 top-0 rounded-[15px] object-cover will-change-transform [transform:translateZ(0)]'
           style={{ width: imageWidth, height: imageHeight }}

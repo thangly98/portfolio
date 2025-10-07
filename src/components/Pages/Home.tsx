@@ -25,6 +25,7 @@ function HomePage({ data }: Readonly<{ data: IDataHomePage }>) {
           <div className='flex justify-center max-md:hidden'>
             <TiltedCard
               imageSrc={data.avatar}
+              fetchPriority='high'
               containerWidth={500}
               containerHeight={500}
               imageWidth={500}
