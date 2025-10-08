@@ -9,7 +9,7 @@ function PageTitle({ title, titleBg }: Readonly<{ title: string; titleBg?: strin
         'max-md:fixed max-md:left-0 max-md:top-0 max-md:z-10 max-md:w-full max-md:bg-[--border-color] max-md:px-6 max-md:py-4'
       )}
     >
-      <h1 className={classNames('text-6xl max-md:text-3xl')}>
+      <h1 className={classNames('text-6xl max-md:text-3xl', 'animate-tracking-in-expand')}>
         {title.split(' ').slice(0, -1).join(' ')}
         &nbsp;
         <span className={classNames('text-primary')}>{title.split(' ').slice(-1)}</span>

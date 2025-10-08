@@ -4,6 +4,7 @@ import classNames from '@functions/classNames';
 
 import ArrowRightIcon from '@assets/icons/map-arrow-right-filled.svg?react';
 import Animate from '@components/Fragments/Animate';
+import Magnet from '@components/Fragments/Magnet';
 import PrimaryButton from '@components/Fragments/PrimaryButton';
 import ShinyText from '@components/Fragments/ShinyText';
 import TiltedCard from '@components/Fragments/TiltedCard';
@@ -67,11 +68,13 @@ function HomePage({ data }: Readonly<{ data: IDataHomePage }>) {
               dangerouslySetInnerHTML={{ __html: data.introduction }}
             /> */}
           </Animate>
-          <Animate animation='fade' animationDelay={400}>
-            <Link to={'/about'} className='max-lg:justify-center md:max-lg:flex'>
-              <PrimaryButton icon={<ArrowRightIcon />}>More about me</PrimaryButton>
-            </Link>
-          </Animate>
+          <Magnet>
+            <Animate animation='fade' animationDelay={400}>
+              <Link to={'/about'} className='max-lg:justify-center md:max-lg:flex'>
+                <PrimaryButton icon={<ArrowRightIcon />}>More about me</PrimaryButton>
+              </Link>
+            </Animate>
+          </Magnet>
         </div>
       </div>
     </div>

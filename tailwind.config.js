@@ -53,6 +53,11 @@ export default {
           '95%': { 'clip-path': 'inset(25% 0 35% 0)' },
           '100%': { 'clip-path': 'inset(30% 0 40% 0)' },
         },
+        'tracking-in-expand': {
+          '0%': { 'letter-spacing': '-0.5em', opacity: 0 },
+          '40%': { opacity: 0.6 },
+          '100%': { opacity: 1 },
+        },
       },
       animation: {
         'progress-loading': 'progress 1.6s infinite',
@@ -63,6 +68,7 @@ export default {
         'star-movement-top': 'star-movement-top linear infinite alternate',
         'glitch-after': 'glitch var(--after-duration) infinite linear alternate-reverse',
         'glitch-before': 'glitch var(--before-duration) infinite linear alternate-reverse',
+        'tracking-in-expand': 'tracking-in-expand 0.7s cubic-bezier(0.215, 0.610, 0.355, 1.000) both',
       },
     },
   },

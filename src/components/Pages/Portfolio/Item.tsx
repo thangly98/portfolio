@@ -8,7 +8,7 @@ function ProjectItem({ data, onClick }: Readonly<{ data: IProject; onClick?: (da
     <Animate animation='fade' appearHalf>
       <div
         role='none'
-        className={classNames('group relative cursor-pointer overflow-hidden rounded-xl text-center')}
+        className={classNames('group relative cursor-pointer overflow-hidden rounded-xl text-center', 'cursor-target')}
         onClick={() => onClick?.(data)}
       >
         <img
