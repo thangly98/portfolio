@@ -2,11 +2,11 @@ export default function ProgressLoader() {
   return (
     <div
       className={[
-        'w-[134px] h-[24px]',
-        'border-[2px] border-solid rounded-[22px]',
+        'h-6 w-[134px]',
+        'rounded-[22px] border-2 border-solid',
         'text-primary relative',
-        'before:absolute before:m-[2px] before:inset-[0_100%_0_0] before:rounded-[inherit] before:bg-primary before:animate-progress-loading',
+        'before:bg-primary before:animate-progress-loading before:absolute before:inset-[0_100%_0_0] before:m-0.5 before:rounded-[inherit]',
       ].join(' ')}
     />
-  )
+  );
 }

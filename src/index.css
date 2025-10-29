@@ -1,6 +1,8 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss';
+
+@theme {
+  --color-primary: #ffb400;
+}
 
 :root {
   font-family: 'Poppins', sans-serif;

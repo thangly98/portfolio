@@ -1,9 +1,9 @@
 /// <reference types="vitest" />
-import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react-swc'
-import tsconfigPaths from 'vite-tsconfig-paths'
-import svgr from 'vite-plugin-svgr'
-import tailwindcss from 'tailwindcss'
+import tailwindcss from '@tailwindcss/vite';
+import react from '@vitejs/plugin-react-swc';
+import { defineConfig } from 'vite';
+import svgr from 'vite-plugin-svgr';
+import tsconfigPaths from 'vite-tsconfig-paths';
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -12,12 +12,13 @@ export default defineConfig({
   },
   css: {
     postcss: {
-      plugins: [tailwindcss()],
+      plugins: [],
     },
   },
   plugins: [
     react(),
     tsconfigPaths(),
+    tailwindcss(),
     svgr({
       svgrOptions: {
         svgProps: { width: '1em' },
@@ -28,4 +29,4 @@ export default defineConfig({
     globals: true,
     environment: 'jsdom',
   },
-})
+});
