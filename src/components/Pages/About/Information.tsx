@@ -62,7 +62,7 @@ function PersonalInfos({ data }: Readonly<{ data: IResumeType }>) {
             src={information.avatar}
             alt={data.information.last_name + "'s avatar"}
             className={classNames(
-              'mx-auto mb-8 aspect-square w-48 rounded-[50%] border-4 border-[--border-color] bg-gray-50 object-cover sm:hidden'
+              'mx-auto mb-8 aspect-square w-48 rounded-[50%] border-4 border-(--border-color) bg-gray-50 object-cover sm:hidden'
             )}
             onError={(e) => e.currentTarget.classList.add('hidden')}
           />
@@ -109,7 +109,7 @@ function PersonalInfos({ data }: Readonly<{ data: IResumeType }>) {
         <div className={classNames('grid grid-cols-2 gap-8')}>
           {counterInfos.map(({ title, count }, index) => (
             <Animate key={new Date().getTime() + index} animation='zoom-in' animationDelay={index * 100}>
-              <div className={classNames('p-6', 'rounded border border-[--border-color]')}>
+              <div className={classNames('p-6', 'rounded border border-(--border-color)')}>
                 <h4 className={classNames('text-5xl font-bold text-primary')}>
                   <CountUp from={0} to={count} />
                   {count > 0 && <sup className='font-normal'>+</sup>}
@@ -117,7 +117,7 @@ function PersonalInfos({ data }: Readonly<{ data: IResumeType }>) {
                 <p
                   className={classNames(
                     'relative font-medium sm:pl-11',
-                    'before:left-0 before:top-3 before:h-[1px] before:w-7 before:bg-[#777] sm:before:absolute'
+                    'before:left-0 before:top-3 before:h-px before:w-7 before:bg-[#777] sm:before:absolute'
                   )}
                 >
                   {title}

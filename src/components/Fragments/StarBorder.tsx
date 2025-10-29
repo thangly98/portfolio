@@ -19,7 +19,7 @@ const StarBorder = <T extends React.ElementType = 'button'>({
   const Component = as ?? 'button';
 
   return (
-    <Component className={`relative inline-block overflow-hidden rounded-[20px] py-[1px] ${className}`} {...rest}>
+    <Component className={`relative inline-block overflow-hidden rounded-[20px] py-px ${className}`} {...rest}>
       <div
         className='absolute bottom-[-11px] right-[-250%] z-0 h-[50%] w-[300%] animate-star-movement-bottom rounded-full opacity-70'
         style={{
@@ -34,7 +34,7 @@ const StarBorder = <T extends React.ElementType = 'button'>({
           animationDuration: speed,
         }}
       ></div>
-      <div className='z-1 relative rounded-[20px] border border-gray-800 bg-gradient-to-b from-black to-gray-900 px-[26px] py-[16px] text-center text-[16px] text-white'>
+      <div className='z-1 relative rounded-[20px] border border-gray-800 bg-linear-to-b from-black to-gray-900 px-[26px] py-[16px] text-center text-[16px] text-white'>
         {children}
       </div>
     </Component>

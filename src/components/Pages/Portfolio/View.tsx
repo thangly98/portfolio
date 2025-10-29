@@ -49,7 +49,7 @@ function ProjectViewer({ open, data, onClose }: Readonly<{ open?: boolean; data?
         className={classNames(
           'right-0 top-0 text-4xl text-[#ababab] md:absolute',
           'flex w-full justify-end px-6 py-3 md:p-5',
-          'border-[#333] max-md:border-b max-md:bg-[--border-color]'
+          'border-[#333] max-md:border-b max-md:bg-(--border-color)'
         )}
       >
         <CloseIcon className={classNames('cursor-pointer')} onClick={onClose} />
@@ -61,7 +61,7 @@ function ProjectViewer({ open, data, onClose }: Readonly<{ open?: boolean; data?
           open ? 'scale-100' : 'scale-110',
           'transition-all duration-300',
           'scrollbar-custom w-full max-w-3xl overflow-auto px-6 py-8 max-md:flex-auto md:max-h-[calc(100vh-150px)]',
-          'bg-[--border-color] md:rounded-xl'
+          'bg-(--border-color) md:rounded-xl'
         )}
       >
         {data && isRender && (

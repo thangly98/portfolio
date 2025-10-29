@@ -20,7 +20,7 @@ function Menu() {
   const location = useLocation();
 
   const menuActive = (path: string) => {
-    if (path === location.pathname) return ' !bg-primary';
+    if (path === location.pathname) return ' bg-primary!';
     return '';
   };
 

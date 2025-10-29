@@ -95,7 +95,7 @@ export default function TiltedCard(props: Readonly<TiltedCardProps>) {
   return (
     <figure
       ref={ref}
-      className='relative flex h-full w-full flex-col items-center justify-center [perspective:800px]'
+      className='relative flex h-full w-full flex-col items-center justify-center perspective-midrange'
       style={{ height: containerHeight, width: containerWidth }}
       onMouseMove={handleMouse}
       onMouseEnter={handleMouseEnter}
@@ -106,19 +106,19 @@ export default function TiltedCard(props: Readonly<TiltedCardProps>) {
       )}
 
       <motion.div
-        className='relative [transform-style:preserve-3d]'
+        className='relative transform-3d'
         style={{ width: imageWidth, height: imageHeight, rotateX, rotateY, scale }}
       >
         <motion.img
           src={imageSrc}
           fetchPriority={fetchPriority}
           alt={altText}
-          className='absolute left-0 top-0 rounded-[15px] object-cover will-change-transform [transform:translateZ(0)]'
+          className='absolute left-0 top-0 rounded-[15px] object-cover will-change-transform transform-[translateZ(0)]'
           style={{ width: imageWidth, height: imageHeight }}
         />
 
         {displayOverlayContent && overlayContent && (
-          <motion.div className='absolute left-0 top-0 z-[2] will-change-transform [transform:translateZ(30px)]'>
+          <motion.div className='absolute left-0 top-0 z-2 will-change-transform transform-[translateZ(30px)]'>
             {overlayContent}
           </motion.div>
         )}
@@ -126,7 +126,7 @@ export default function TiltedCard(props: Readonly<TiltedCardProps>) {
 
       {showTooltip && (
         <motion.figcaption
-          className='pointer-events-none absolute left-0 top-0 z-[3] hidden rounded-[4px] bg-white px-[10px] py-[4px] text-[10px] text-[#2d2d2d] opacity-0 sm:block'
+          className='pointer-events-none absolute left-0 top-0 z-3 hidden rounded-[4px] bg-white px-[10px] py-[4px] text-[10px] text-[#2d2d2d] opacity-0 sm:block'
           style={{ x, y, opacity, rotate: rotateFigcaption }}
         >
           {captionText}

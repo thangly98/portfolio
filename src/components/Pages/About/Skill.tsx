@@ -10,7 +10,7 @@ function MySkills({ data }: Readonly<{ data: ISkillType[] }>) {
     <section>
       <Animate animation='fade'>
         <div>
-          <hr className={classNames('mx-auto mb-12 mt-16 max-w-[40%] border-[--border-color]')} />
+          <hr className={classNames('mx-auto mb-12 mt-16 max-w-[40%] border-(--border-color)')} />
           <h3 className={classNames('mb-5 pb-12', 'text-center text-2xl font-bold uppercase')}>My Skills</h3>
         </div>
       </Animate>
@@ -21,12 +21,12 @@ function MySkills({ data }: Readonly<{ data: ISkillType[] }>) {
               <div
                 className={classNames(
                   'relative h-[1em] w-[1em] text-9xl text-[120px] font-semibold',
-                  'rounded-[50%] bg-[--border-color]',
+                  'rounded-[50%] bg-(--border-color)',
                   'after:absolute after:left-[.08em] after:top-[.08em] after:block after:h-[.84em] after:w-[.84em] after:rounded-[50%] after:bg-[#111]',
                   'max-sm:text-[96px]'
                 )}
               >
-                <span className={classNames('absolute left-0 top-0 z-[1] w-[5em]', 'block text-[.2em] leading-[5em]')}>
+                <span className={classNames('absolute left-0 top-0 z-1 w-[5em]', 'block text-[.2em] leading-[5em]')}>
                   <CountUp from={0} to={point} />%
                 </span>
                 <div

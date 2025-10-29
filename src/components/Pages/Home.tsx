@@ -15,7 +15,7 @@ function HomePage({ data }: Readonly<{ data: IDataHomePage }>) {
   const windowSize = useWindowSize();
   return (
     <div className='container mx-auto px-4'>
-      <div className={classNames('bg-primary', 'fixed -left-[83%] -top-1/2 -z-10 h-[200%] w-full -rotate-[15deg]', 'max-lg:hidden')} />
+      <div className={classNames('bg-primary', 'fixed -left-[83%] -top-1/2 -z-10 h-[200%] w-full -rotate-15', 'max-lg:hidden')} />
       <div
         className={classNames(
           'grid grid-cols-[2fr_3fr] content-center gap-10',

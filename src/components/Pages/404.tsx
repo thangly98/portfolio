@@ -14,7 +14,7 @@ function NotFoundPage() {
     const characterActive = document.querySelectorAll('li.active');
     const interval = setInterval(() => {
       if (indexCharacterRef.current < characterActive.length) {
-        characterActive?.[indexCharacterRef.current].classList.add('!bg-primary', '!text-white', '!font-medium');
+        characterActive?.[indexCharacterRef.current].classList.add('bg-primary!', 'text-white!', 'font-medium!');
         indexCharacterRef.current++;
       } else clearInterval(interval);
     }, 500);
@@ -31,7 +31,7 @@ function NotFoundPage() {
               'grid grid-cols-8',
               '[&_li]:flex [&_li]:aspect-square [&_li]:items-center [&_li]:justify-center',
               '[&_li]:text-xl [&_li]:uppercase [&_li]:text-slate-300',
-              '[&_li]:border-2 [&_li]:border-[#111] [&_li]:bg-[--border-color]',
+              '[&_li]:border-2 [&_li]:border-[#111] [&_li]:bg-(--border-color)',
               '[&_li]:transition-all [&_li]:duration-300'
             )}
           >
@@ -103,7 +103,7 @@ function NotFoundPage() {
         </div>
         <div className={classNames('content-center')}>
           <h1 className={classNames('text-3xl')}>
-            <GlitchText speed={1} enableOnHover className='!text-4xl font-bold'>
+            <GlitchText speed={1} enableOnHover className='text-4xl! font-bold'>
               Oops! Something is wrong.
             </GlitchText>
           </h1>

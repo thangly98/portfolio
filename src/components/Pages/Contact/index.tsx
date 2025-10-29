@@ -86,9 +86,9 @@ function ContactPage({ data }: Readonly<{ data: IDataContactPage }>) {
             )}
             onSubmit={handleSubmit}
           >
-            <div className={classNames('lg:!basis-1/2')}>
+            <div className={classNames('lg:basis-1/2!')}>
               <input
-                className={classNames('w-full rounded-full bg-[--border-color] px-7 py-3')}
+                className={classNames('w-full rounded-full bg-(--border-color) px-7 py-3')}
                 type='text'
                 placeholder='Your name'
                 name='name'
@@ -96,9 +96,9 @@ function ContactPage({ data }: Readonly<{ data: IDataContactPage }>) {
                 disabled={loading}
               />
             </div>
-            <div className={classNames('lg:!basis-1/2')}>
+            <div className={classNames('lg:basis-1/2!')}>
               <input
-                className={classNames('w-full rounded-full bg-[--border-color] px-7 py-3')}
+                className={classNames('w-full rounded-full bg-(--border-color) px-7 py-3')}
                 type='email'
                 placeholder='Your email'
                 name='email'
@@ -108,7 +108,7 @@ function ContactPage({ data }: Readonly<{ data: IDataContactPage }>) {
             </div>
             <div>
               <input
-                className={classNames('w-full rounded-full bg-[--border-color] px-7 py-3')}
+                className={classNames('w-full rounded-full bg-(--border-color) px-7 py-3')}
                 type='text'
                 placeholder='Your subject'
                 name='subject'
@@ -118,7 +118,7 @@ function ContactPage({ data }: Readonly<{ data: IDataContactPage }>) {
             </div>
             <div>
               <textarea
-                className={classNames('min-h-32 w-full rounded-3xl bg-[--border-color] px-7 py-3')}
+                className={classNames('min-h-32 w-full rounded-3xl bg-(--border-color) px-7 py-3')}
                 placeholder='Your message'
                 name='message'
                 required

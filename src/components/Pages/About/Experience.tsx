@@ -15,7 +15,7 @@ function MyExperiences({ data }: Readonly<{ data: { educations: IEducationType[]
     <section>
       <Animate animation='fade'>
         <div>
-          <hr className={classNames('mx-auto mb-12 mt-16 max-w-[40%] border-[--border-color]')} />
+          <hr className={classNames('mx-auto mb-12 mt-16 max-w-[40%] border-(--border-color)')} />
           <h3 className={classNames('mb-5 pb-12', 'text-center text-2xl font-bold uppercase')}>Experience & Education</h3>
         </div>
       </Animate>
@@ -45,7 +45,7 @@ function Item({ data, type, ...props }: Readonly<{ data: IEducationType | IExper
         className={classNames(
           'relative',
           'after:absolute after:bottom-0 after:left-[calc(var(--timeline-icon-w)/2)] after:top-0 after:-translate-x-1/2',
-          'after:-z-10 after:w-[1px] after:bg-[#333]'
+          'after:-z-10 after:w-px after:bg-[#333]'
         )}
         style={{ height: isShow ? 'auto' : '0' }}
       >
@@ -53,7 +53,7 @@ function Item({ data, type, ...props }: Readonly<{ data: IEducationType | IExper
           <div
             className={classNames(
               'flex items-center justify-center',
-              'h-[--timeline-icon-w] w-[--timeline-icon-w] rounded-[50%]',
+              'h-(--timeline-icon-w) w-(--timeline-icon-w) rounded-[50%]',
               'bg-primary'
             )}
           >
@@ -65,8 +65,8 @@ function Item({ data, type, ...props }: Readonly<{ data: IEducationType | IExper
         <Animate animation='fade'>
           <span
             className={classNames(
-              'mb-3 inline-block px-2 py-[1px]',
-              'rounded-3xl bg-[--border-color] text-xs font-semibold uppercase opacity-80'
+              'mb-3 inline-block px-2 py-px',
+              'rounded-3xl bg-(--border-color) text-xs font-semibold uppercase opacity-80'
             )}
           >
             {new Date(data.start_date).getFullYear()} - {data.end_date ? new Date(data.end_date).getFullYear() : 'Present'}
