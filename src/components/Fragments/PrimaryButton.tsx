@@ -1,5 +1,6 @@
-import { PropsWithChildren, ReactNode } from 'react'
-import classNames from '@functions/classNames'
+import { PropsWithChildren, ReactNode } from 'react';
+
+import classNames from '@functions/classNames';
 
 function PrimaryButton({ children, icon, disabled }: Readonly<PropsWithChildren & { icon?: ReactNode; disabled?: boolean }>) {
   return (
@@ -7,25 +8,27 @@ function PrimaryButton({ children, icon, disabled }: Readonly<PropsWithChildren 
       className={classNames(
         'flex items-center gap-2',
         `h-14 pl-4 ${icon ? 'pr-16' : 'pr-4'} overflow-hidden`,
-        'relative rounded-full border border-primary bg-transparent text-white',
+        'border-amber-9 relative rounded-full border bg-transparent text-white',
         'hover:before:translate-x-0',
-        'before:absolute before:top-0 before:bottom-0 before:left-0 before:right-0 before:z-[-1] before:bg-primary before:translate-x-full before:transition-all before:duration-300'
+        'before:bg-primary before:absolute before:top-0 before:right-0 before:bottom-0 before:left-0 before:z-[-1] before:translate-x-full before:transition-all before:duration-300'
       )}
-      disabled={disabled}>
+      disabled={disabled}
+    >
       <span className={classNames('font-semibold uppercase')}>{children}</span>
       {icon && (
         <span
           className={classNames(
             'absolute top-0 -right-px',
             'flex items-center justify-center',
-            'h-full aspect-square',
-            'text-2xl bg-primary rounded-full'
-          )}>
+            'aspect-square h-full',
+            'bg-primary rounded-full text-2xl'
+          )}
+        >
           {icon}
         </span>
       )}
     </button>
-  )
+  );
 }
 
-export default PrimaryButton
+export default PrimaryButton;

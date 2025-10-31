@@ -9,8 +9,8 @@ function ProjectItem({ data, onClick }: Readonly<{ data: IProject; onClick?: (da
       <div
         className={classNames(
           'cursor-target group',
-          'relative flex aspect-5/4 items-center justify-center overflow-hidden rounded-lg shadow-[0_0_0_4px_--alpha(white/70%)] transition-all duration-600 ease-[cubic-bezier(0.175,0.885,0.32,1.275)] perspective-[1000px]',
-          'hover:scale-[1.05] hover:shadow-[0_8px_16px_rgba(255,255,255,0.2)]'
+          'relative flex aspect-5/4 items-center justify-center overflow-hidden rounded-lg shadow-[0_0_0_4px_var(--color-amber-11)] transition-all duration-600 ease-[cubic-bezier(0.175,0.885,0.32,1.275)] perspective-[1000px]',
+          'hover:scale-[1.05] hover:shadow-[0_8px_16px_--alpha(white/20%)]'
         )}
         onClick={() => onClick?.(data)}
       >

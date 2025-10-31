@@ -1,11 +1,10 @@
 import { useState } from 'react';
 
+import classNames from '@functions/classNames';
 import parse, { attributesToProps, DOMNode, domToReact, Element } from 'html-react-parser';
 
 import BackpackIcon from '@assets/icons/backpack-filled.svg?react';
 import SquareAcademicIcon from '@assets/icons/squarea-cademic-filled.svg?react';
-import classNames from '@functions/classNames';
-
 import Animate from '@components/Fragments/Animate';
 
 import { IEducationType, IExperienceType } from '.';
@@ -15,7 +14,7 @@ function MyExperiences({ data }: Readonly<{ data: { educations: IEducationType[]
     <section>
       <Animate animation='fade'>
         <div>
-          <hr className={classNames('mx-auto mb-12 mt-16 max-w-[40%] border-(--border-color)')} />
+          <hr className={classNames('mx-auto mt-16 mb-12 max-w-[40%] border-(--border-color)')} />
           <h3 className={classNames('mb-5 pb-12', 'text-center text-2xl font-bold uppercase')}>Experience & Education</h3>
         </div>
       </Animate>
@@ -44,7 +43,7 @@ function Item({ data, type, ...props }: Readonly<{ data: IEducationType | IExper
       <div
         className={classNames(
           'relative',
-          'after:absolute after:bottom-0 after:left-[calc(var(--timeline-icon-w)/2)] after:top-0 after:-translate-x-1/2',
+          'after:absolute after:top-0 after:bottom-0 after:left-[calc(var(--timeline-icon-w)/2)] after:-translate-x-1/2',
           'after:-z-10 after:w-px after:bg-[#333]'
         )}
         style={{ height: isShow ? 'auto' : '0' }}
@@ -73,10 +72,10 @@ function Item({ data, type, ...props }: Readonly<{ data: IEducationType | IExper
           </span>
         </Animate>
         <Animate animation='fade'>
-          <h5 className={classNames('mb-3 mt-2', 'text-lg font-medium leading-6')}>
+          <h5 className={classNames('mt-2 mb-3', 'text-lg leading-6 font-medium')}>
             {data.position}
             <span className={classNames('px-2 text-[.9375rem] opacity-80')}>-</span>
-            <span className={classNames('text-[.9375rem] font-semibold opacity-80')}>{data.name}</span>
+            <span className={classNames('text-amber-12 text-sm font-medium')}>{data.name}</span>
           </h5>
         </Animate>
 

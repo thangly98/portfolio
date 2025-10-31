@@ -39,7 +39,7 @@ function ProjectViewer({ open, data, onClose }: Readonly<{ open?: boolean; data?
     <div
       className={classNames(
         open ? 'visible opacity-100' : 'invisible opacity-0',
-        'fixed left-0 top-0 z-50 h-dvh w-full md:p-5',
+        'fixed top-0 left-0 z-50 h-dvh w-full md:p-5',
         'flex items-center justify-center max-md:flex-col',
         'bg-[rgba(0,0,0,0.6)]',
         'transition-all duration-300'
@@ -47,7 +47,7 @@ function ProjectViewer({ open, data, onClose }: Readonly<{ open?: boolean; data?
     >
       <div
         className={classNames(
-          'right-0 top-0 text-4xl text-[#ababab] md:absolute',
+          'top-0 right-0 text-4xl text-[#ababab] md:absolute',
           'flex w-full justify-end px-6 py-3 md:p-5',
           'border-[#333] max-md:border-b max-md:bg-(--border-color)'
         )}
@@ -66,11 +66,11 @@ function ProjectViewer({ open, data, onClose }: Readonly<{ open?: boolean; data?
       >
         {data && isRender && (
           <>
-            <h3 className={classNames('text-center text-4xl font-bold uppercase text-primary')}>{data.name}</h3>
+            <h3 className={classNames('text-primary text-center text-4xl font-bold uppercase')}>{data.name}</h3>
             <ul
               className={classNames(
                 'my-3 text-sm',
-                '[&>li]:mb-2 [&_li_span]:font-normal [&_li_span]:text-[#ababab] [&_li_svg]:mr-2 [&_li_svg]:inline-block [&_li_svg]:text-base [&_li_svg]:text-primary'
+                '[&_li_svg]:text-primary [&_li_span]:font-normal [&_li_span]:text-[#ababab] [&_li_svg]:mr-2 [&_li_svg]:inline-block [&_li_svg]:text-base [&>li]:mb-2'
               )}
             >
               <li>
@@ -139,7 +139,7 @@ function ProjectViewer({ open, data, onClose }: Readonly<{ open?: boolean; data?
             {data.galleries?.map(({ url, caption }) => (
               <div key={url} className={classNames('mt-4')}>
                 <img src={url} alt='' className={classNames('h-auto w-full rounded-md')} />
-                <p className={classNames('py-1 text-center text-sm italic text-gray-300')}>{caption}</p>
+                <p className={classNames('py-1 text-center text-sm text-gray-300 italic')}>{caption}</p>
               </div>
             ))}
           </>
