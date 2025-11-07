@@ -8,7 +8,7 @@ function PrimaryButton({ children, icon, disabled }: Readonly<PropsWithChildren 
       className={classNames(
         'flex items-center gap-2',
         `h-14 pl-4 ${icon ? 'pr-16' : 'pr-4'} overflow-hidden`,
-        'border-amber-9 relative rounded-full border bg-transparent text-white',
+        'border-primary relative rounded-full border bg-transparent text-white',
         'hover:before:translate-x-0',
         'before:bg-primary before:absolute before:top-0 before:right-0 before:bottom-0 before:left-0 before:z-[-1] before:translate-x-full before:transition-all before:duration-300'
       )}

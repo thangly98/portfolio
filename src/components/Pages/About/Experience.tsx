@@ -75,7 +75,7 @@ function Item({ data, type, ...props }: Readonly<{ data: IEducationType | IExper
           <h5 className={classNames('mt-2 mb-3', 'text-lg leading-6 font-medium')}>
             {data.position}
             <span className={classNames('px-2 text-[.9375rem] opacity-80')}>-</span>
-            <span className={classNames('text-amber-12 text-sm font-medium')}>{data.name}</span>
+            <span className={classNames('text-primary/80 text-sm font-medium')}>{data.name}</span>
           </h5>
         </Animate>
 
