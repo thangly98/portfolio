@@ -17,7 +17,7 @@ function ProjectItem({ data, onClick }: Readonly<{ data: IProject; onClick?: (da
         <img
           src={data.thumbnail.url}
           alt={data.name}
-          className={classNames('transition-all duration-600 ease-[cubic-bezier(0.175,0.885,0.32,1.275)]')}
+          className={classNames('object-cover transition-all duration-600 ease-[cubic-bezier(0.175,0.885,0.32,1.275)]')}
         />
         <div
           className={classNames(
@@ -26,7 +26,7 @@ function ProjectItem({ data, onClick }: Readonly<{ data: IProject; onClick?: (da
           )}
         >
           <p className={classNames('mb-1 text-2xl font-semibold')}>{data.name}</p>
-          <p className={classNames('mb-2 text-sm font-light')}>{data.introduction}</p>
+          <p className={classNames('mb-2 line-clamp-6 text-sm font-light')}>{data.introduction}</p>
           <button
             className={classNames('cursor-target', 'bg-primary cursor-pointer rounded-lg border-none px-[15px] py-1 text-white')}
             onClick={() => onClick?.(data)}
