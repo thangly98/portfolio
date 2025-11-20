@@ -15,7 +15,7 @@ function ProjectItem({ data, onClick }: Readonly<{ data: IProject; onClick?: (da
         onClick={() => onClick?.(data)}
       >
         <img
-          src={data.thumbnail}
+          src={data.thumbnail.url}
           alt={data.name}
           className={classNames('transition-all duration-600 ease-[cubic-bezier(0.175,0.885,0.32,1.275)]')}
         />
