@@ -59,7 +59,7 @@ function PersonalInfos({ data }: Readonly<{ data: IResumeType }>) {
         <h3 className={classNames('mb-5', 'text-2xl font-bold uppercase')}>Personal infos</h3>
         <Animate animation='flip-left'>
           <img
-            src={information.avatar}
+            src={information.avatar.url}
             alt={data.information.last_name + "'s avatar"}
             className={classNames(
               'mx-auto mb-8 aspect-square w-48 rounded-[50%] border-4 border-(--border-color) bg-gray-50 object-cover sm:hidden'
@@ -110,14 +110,14 @@ function PersonalInfos({ data }: Readonly<{ data: IResumeType }>) {
           {counterInfos.map(({ title, count }, index) => (
             <Animate key={new Date().getTime() + index} animation='zoom-in' animationDelay={index * 100}>
               <div className={classNames('p-6', 'rounded border border-(--border-color)')}>
-                <h4 className={classNames('text-5xl font-bold text-primary')}>
+                <h4 className={classNames('text-primary text-5xl font-bold')}>
                   <CountUp from={0} to={count} />
                   {count > 0 && <sup className='font-normal'>+</sup>}
                 </h4>
                 <p
                   className={classNames(
                     'relative font-medium sm:pl-11',
-                    'before:left-0 before:top-3 before:h-px before:w-7 before:bg-[#777] sm:before:absolute'
+                    'before:top-3 before:left-0 before:h-px before:w-7 before:bg-[#777] sm:before:absolute'
                   )}
                 >
                   {title}

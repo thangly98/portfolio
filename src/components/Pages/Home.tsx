@@ -15,7 +15,7 @@ function HomePage({ data }: Readonly<{ data: IDataHomePage }>) {
   const windowSize = useWindowSize();
   return (
     <div className='container mx-auto px-4'>
-      <div className={classNames('bg-primary', 'fixed -left-[83%] -top-1/2 -z-10 h-[200%] w-full -rotate-15', 'max-lg:hidden')} />
+      <div className={classNames('bg-primary', 'fixed -top-1/2 -left-[83%] -z-10 h-[200%] w-full -rotate-15', 'max-lg:hidden')} />
       <div
         className={classNames(
           'grid grid-cols-[2fr_3fr] content-center gap-10',
@@ -28,7 +28,7 @@ function HomePage({ data }: Readonly<{ data: IDataHomePage }>) {
           <Animate animation='flip-left'>
             <div className='flex justify-center max-md:hidden'>
               <TiltedCard
-                imageSrc={data.avatar}
+                imageSrc={data.avatar.url}
                 fetchPriority='high'
                 containerWidth={500}
                 containerHeight={500}
@@ -46,8 +46,8 @@ function HomePage({ data }: Readonly<{ data: IDataHomePage }>) {
             <div
               className={classNames(
                 'relative pl-20',
-                'text-5xl font-bold uppercase leading-tight',
-                'before:absolute before:left-0 before:top-7 before:h-1 before:w-10 before:bg-primary',
+                'text-5xl leading-tight font-bold uppercase',
+                'before:bg-primary before:absolute before:top-7 before:left-0 before:h-1 before:w-10',
                 'max-lg:pl-0 max-lg:text-4xl max-lg:before:content-none',
                 'max-md:text-2xl'
               )}
@@ -61,7 +61,7 @@ function HomePage({ data }: Readonly<{ data: IDataHomePage }>) {
           <Animate animation='fade' animationDelay={200}>
             <ShinyText
               text={data.introduction}
-              className={classNames('mb-7 mt-5', 'font-medium leading-loose', '[&_li]:mt-2 [&_ul]:list-inside [&_ul]:list-disc')}
+              className={classNames('mt-5 mb-7', 'leading-loose font-medium', '[&_li]:mt-2 [&_ul]:list-inside [&_ul]:list-disc')}
             />
             {/* <div
               className={classNames('mt-5 mb-7', 'font-medium leading-loose', '[&_ul]:list-disc [&_ul]:list-inside [&_li]:mt-2')}
