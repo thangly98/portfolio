@@ -20,7 +20,16 @@ function PersonalInfos({ data }: Readonly<{ data: IResumeType }>) {
           EXPERIENCE
         </>
       ),
-      count: new Date().getFullYear() - new Date(data.experience_start_date ?? '').getFullYear(),
+      count: Math.round(
+        data.experiences.reduce((total, exp) => {
+          const start = new Date(exp.start_date);
+          const end = exp.end_date ? new Date(exp.end_date) : new Date();
+
+          const years = end.getFullYear() - start.getFullYear();
+          const months = end.getMonth() - start.getMonth();
+          return total + years + months / 12;
+        }, 0)
+      ),
     },
     {
       title: (

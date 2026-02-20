@@ -68,7 +68,10 @@ function Item({ data, type, ...props }: Readonly<{ data: IEducationType | IExper
               'rounded-3xl bg-(--border-color) text-xs font-semibold uppercase opacity-80'
             )}
           >
-            {new Date(data.start_date).getFullYear()} - {data.end_date ? new Date(data.end_date).getFullYear() : 'Present'}
+            {new Date(data.start_date).toLocaleString('default', { month: 'short' })} {new Date(data.start_date).getFullYear()} -{' '}
+            {data.end_date
+              ? `${new Date(data.end_date).toLocaleString('default', { month: 'short' })} ${new Date(data.end_date).getFullYear()}`
+              : 'Present'}
           </span>
         </Animate>
         <Animate animation='fade'>

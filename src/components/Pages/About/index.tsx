@@ -12,7 +12,6 @@ type IResumeType = {
   information: IInformationType;
   educations: IEducationType[];
   experiences: IExperienceType[];
-  experience_start_date?: string;
   total_companies: number;
   total_projects: number;
   skills: ISkillType[];
