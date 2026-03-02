@@ -15,6 +15,22 @@ export default defineConfig({
       plugins: [],
     },
   },
+  build: {
+    rollupOptions: {
+      output: {
+        // manualChunks configures how Rollup splits the build output into separate files.
+        // This helps optimize browser caching and prevents a single massive "index.js" file.
+        // See Vite/Rollup guide: https://vitejs.dev/guide/build.html#chunking-strategy
+        // Rollup specific options: https://rollupjs.org/configuration-options/#output-manualchunks
+        manualChunks: {
+          // Grouping React ecosystem libraries into a "vendor" chunk
+          vendor: ['react', 'react-dom', 'react-router-dom'],
+          // Grouping heavy animation libraries into an "animations" chunk
+          animations: ['framer-motion', 'gsap', 'ogl'],
+        },
+      },
+    },
+  },
   plugins: [
     react(),
     tsconfigPaths(),
